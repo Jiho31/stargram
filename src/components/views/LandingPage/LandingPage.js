@@ -50,7 +50,7 @@ class RegisterContainer extends Component {
 }
 
 class Footer extends Component {
-    render () {
+    render() {
         return (
             <footer className="footer">
                 <nav>

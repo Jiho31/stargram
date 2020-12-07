@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LandingPage from './components/views/LandingPage/LandingPage';
+import FeedPage from './components/views/FeedPage/FeedPage';
 
 class App extends Component {
   state = {
