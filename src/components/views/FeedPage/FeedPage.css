@@ -1,5 +1,30 @@
 .nav-bar {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 54px; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 975px;
+    margin: 0 auto;
+}
+.search-input {
+    width: 215px;
+    height: 28px;
+    text-align: center;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background-color: #fafafa;
+}
+.nav-icons {
+    background: url('../../../images/nav-icons.JPG');
+    background-size: 212px 27px;
+    width: 212px;
+    height: 27px;
+}
+.feed-body {
+    height: 900px;
+    width: 100%;
+    background-color: #fafafa;
+    border-top: solid 1px #dbdbdb;
 }
