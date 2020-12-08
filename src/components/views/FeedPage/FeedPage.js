@@ -24,7 +24,7 @@ class FeedBody extends Component {
         return (
             <>
                 <main>
-
+                    hiiiiiii
                 </main>
                 <aside>
         
