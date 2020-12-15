@@ -9,6 +9,7 @@ button {
     background: none;
     border: none;
 }
+/* navigation bar */
 .nav-bar {
     display: flex;
     flex-direction: row;
@@ -33,6 +34,8 @@ button {
     width: 212px;
     height: 27px;
 }
+
+/* feed contents */
 .feed-body {
     width: 100%;
     background-color: #fafafa;
@@ -43,6 +46,7 @@ button {
 }
 .main-body {
     width: 614px;
+    margin-right: 28px;
     /* max-width: 614px; */
 }
 .story-box {
@@ -176,4 +180,55 @@ button {
     border: 0;
     resize: none;
     font: inherit;
+}
+
+/* Aside */
+.side-body {
+    width: 100%;
+    max-width: 293px;
+    height: 100vh;
+}
+.my-profile {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+.profile-img {
+    width: 56px;
+    height: 56px;
+
+}
+.profile-img > a {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+}
+.profile-img > a > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+}
+.profile-img > a::after {
+    content: '';
+    border: 1px solid rgba(0,0,0,.0975);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.my-userid {
+    width: 60%;
+    font-size: 14px;
+    margin-left: 12px;
 }

@@ -180,11 +180,47 @@ class MainBody extends Component {
     }
 }
 
+class MyProfile extends Component {
+    render() {
+        return (
+            <section className="my-profile">
+                <span className="profile-img">
+                    <a>
+                        <img src="https://instagram.fakl4-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fakl4-1.fna.fbcdn.net&_nc_ohc=O2yhhr3Hd90AX-g48SG&oh=d8fe77e52c08e1384eee2205c7fbf299&oe=6000FA8F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" />
+                    </a>
+                </span>
+                <span className="my-userid">
+                    <div style={{fontWeight: 600, cursor: 'pointer'}}>zl.ll07</div>
+                    <div style={{color: '#8e8e8e'}}>소개입니다</div>
+                </span>
+                <span><button style={{fontSize: '12px', color: '#0095f6', fontWeight: 600, cursor: 'pointer'}}>전환</button></span>
+            </section>
+        );
+    }
+}
+
+class Recommendations extends Component {
+    render() {
+        return (
+            <section>
+                <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+                    <h5 style={{color: '#8e8e8e', fontSize: '14px', fontWeight: 600, display: 'inline-block', margin: '10px 0'}}>회원님을 위한 추천</h5>
+                    <button style={{color: '#262626', fontSize: '12px', fontWeight: 600}}>모두 보기</button>
+                </div>
+                <div>
+                    
+                </div>
+            </section>
+        );
+    }
+}
+
 class SideBody extends Component {
     render() {
         return (
             <aside className="side-body">
-
+                <MyProfile />
+                <Recommendations />
             </aside>
         );
     }
