@@ -192,7 +192,8 @@ class MyProfile extends Component {
                         <img src="https://instagram.fakl4-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fakl4-1.fna.fbcdn.net&_nc_ohc=O2yhhr3Hd90AX-g48SG&oh=d8fe77e52c08e1384eee2205c7fbf299&oe=6000FA8F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" />
                     </a>
                 </span>
-                <span className="my-userid">
+                <span className="my-userid"
+                    style={{width: '187px'}}>
                     <div style={{fontWeight: 600, cursor: 'pointer'}}>zl.ll07</div>
                     <div style={{color: '#8e8e8e'}}>소개입니다</div>
                 </span>
@@ -202,17 +203,44 @@ class MyProfile extends Component {
     }
 }
 
+class UserProfile extends Component {
+    render() {
+        return (
+            <>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '8px 0'}}>
+                    <span style={{width: '32px', height: '32px'}}>
+                        <a className="profile-img">
+                            <img src="https://instagram.fakl4-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fakl4-1.fna.fbcdn.net&_nc_ohc=O2yhhr3Hd90AX-g48SG&oh=d8fe77e52c08e1384eee2205c7fbf299&oe=6000FA8F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" />
+                        </a>
+                    </span>
+                    <span className="my-userid"
+                        style={{width: '201px'}}>
+                        <div style={{fontWeight: 600, cursor: 'pointer'}}>{this.props.userid}</div>
+                        <div style={{color: '#8e8e8e', fontSize: '12px'}}>인기</div>
+                    </span>
+                    <span><button style={{fontSize: '12px', color: '#0095f6', fontWeight: 600, cursor: 'pointer'}}>팔로우</button></span>
+                </div>
+            </>
+        );
+    }
+}
+
 class Recommendations extends Component {
     render() {
+        const Users = ['user1', 'user2', 'user3', 'user4', 'user5'];
+        const RecommendedUser = [];
+
+        for (const [index, value] of Users.entries()) {
+            RecommendedUser.push(<UserProfile key={index} userid={value} />);
+        }
+
         return (
             <section>
                 <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
                     <h5 style={{color: '#8e8e8e', fontSize: '14px', fontWeight: 600, display: 'inline-block', margin: '10px 0'}}>회원님을 위한 추천</h5>
                     <button style={{color: '#262626', fontSize: '12px', fontWeight: 600}}>모두 보기</button>
                 </div>
-                <div>
-                    
-                </div>
+                {RecommendedUser}
             </section>
         );
     }

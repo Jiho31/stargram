@@ -19,6 +19,7 @@ button {
     padding: 0 20px;
     max-width: 975px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 .search-input {
     width: 215px;
@@ -213,7 +214,6 @@ button {
     left: 0;
 }
 .my-userid {
-    width: 60%;
     font-size: 14px;
     margin-left: 12px;
 }
