@@ -53,16 +53,17 @@ class StoryContent extends Component {
 
     render() {
         return (
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '80px', padding: '0 4px' }}>
-                <div className="story-circle">
-                    <img className="story-profile-image"
-                        src={this.props.profileImagePath} 
-                        alt="" />
+            <span style={{width: '80px'}}>
+                <div style={{width: '56px', height: '56px'}}>
+                    <a className="profile-img">
+                        <img src={this.props.profileImagePath} 
+                            alt="" />
+                    </a>
                 </div>
                 <div className="story-user-id">
                     {this.props.uid}
                 </div>
-            </div>
+            </span>
         );
     }
 }
@@ -118,10 +119,12 @@ class FeedContent extends Component {
             <article className="contents">
                 <section className="content-header">
                     <div style={{display: 'flex'}}>
-                        <a href="#"
-                            style={{ width: '32px', height: '32px'}}>
-                            <img src={profileImagePath} alt={userId + '님의 프로필 사진'} />   
-                        </a>
+                        <span style={{ width: '32px', height: '32px'}}>
+                            <a className="profile-img" href="#">
+                                <img src={profileImagePath} alt={userId + '님의 프로필 사진'} />   
+                            </a>
+                        </span>
+                        
                         <span style={{width: '90%'}}>
                             <a href="#"
                                 className="user-id" 
@@ -184,8 +187,8 @@ class MyProfile extends Component {
     render() {
         return (
             <section className="my-profile">
-                <span className="profile-img">
-                    <a>
+                <span style={{width: '56px', height: '56px'}}>
+                    <a className="profile-img">
                         <img src="https://instagram.fakl4-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fakl4-1.fna.fbcdn.net&_nc_ohc=O2yhhr3Hd90AX-g48SG&oh=d8fe77e52c08e1384eee2205c7fbf299&oe=6000FA8F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" />
                     </a>
                 </span>
