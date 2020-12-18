@@ -1,6 +1,69 @@
 import React, {Component} from 'react';
 import './FeedPage.css';
 
+const User = [
+    {
+        id: 'skawngur',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=bxdPI87bW5wAX8Qdz3L&tp=1&oh=469b3e6d7b1e3dfb69b872020178931a&oe=5FFAA577',
+        info: '',
+    },
+    {
+        id: 'drmartenskr',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/15875794_1373930115991468_4987196499470319616_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=34F6yMJb_ooAX8O_hu-&tp=1&oh=17cd0632dd849d95f2f6affedecc56bb&oe=6005008D',
+        info: '',
+    },
+    {
+        id: 'poloralphlauren',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=dvX0Zn7ohNQAX_okVe2&tp=1&oh=01ca61330501ed6bd3fb9c30323a30b9&oe=6007DD44',
+        info: '',
+    },
+];
+
+const Post = [
+    {
+        id: 1,
+        author: 'skawngur',
+        images: [
+            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/130589843_222637495993984_5959484901458307571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=sNHgwZluFSQAX8jMvXU&tp=1&oh=03eb30f0bffdb13a3d6216fe1fa73760&oe=5FFDE616'
+        ],
+        text: '어쩌고 저쩌고 랄랄라',
+        likes: 123234234,
+        postedAt: '2020-12-07 15:00:00'
+    },
+    {
+        id: 2,
+        author: 'poloralphlauren',
+        images: [
+            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131455080_829183747877584_5453324326804325571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=4RI4PCjLl7IAX92isB6&tp=1&oh=c57541c2b74785514af610e4ce350a62&oe=60045236'
+        ],
+        text: 'Timeless Style.',
+        likes: 5432,
+        postedAt: '2020-12-17 16:00:00'
+    },
+    {
+        id: 3,
+        author: 'poloralphlauren',
+        images: [
+            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131589987_3045257572361045_8745769169625157140_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=ihgCMNZMymcAX8SDWFO&tp=1&oh=92b76d79f8f314317a1c4efaad015f89&oe=60076C22', 
+            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131398957_1041215406362239_8729289068274547975_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=Ra-xO9FOpusAX89d8OH&tp=1&oh=d6cf8227a1b9491d999558ed617ce5f4&oe=600453AF', 
+            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131894384_828862237903126_8364150345157521864_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=qR9YmRNApVMAX9ZVAQy&tp=1&oh=0bdd6278b7a8bb3d3c5feb9f6e47029c&oe=60061C95'
+        ],
+        text: 'Holiday essentials for your loved ones.',
+        likes: 20001,
+        postedAt: '2020-12-17 20:30:00'
+    },
+    {
+        id: 4,
+        author: 'drmartenskr',
+        images: [
+            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/131458588_206428924364476_1752664538976446917_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=104&_nc_ohc=7DEKyr59ruMAX-9oG7u&tp=1&oh=5661957f53e0f17a6b5c8d12a3edecf8&oe=60047107'
+        ],
+        text: '',
+        likes: 304,
+        postedAt: '2020-12-17 22:50:00'
+    },
+];
+
 class HomeButton extends Component {
     render() {
         return (
@@ -127,13 +190,22 @@ class Comments extends Component {
     }
 }
 
-class FeedContent extends Component {
-    render() {
+function FeedContent({ post }) {
+        /*
         const profileImagePath = "https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=bxdPI87bW5wAX8Qdz3L&tp=1&oh=469b3e6d7b1e3dfb69b872020178931a&oe=5FFAA577";
         const userId = 'skawngur';
         const feedImagePath = "https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/130589843_222637495993984_5959484901458307571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=sNHgwZluFSQAX8jMvXU&tp=1&oh=03eb30f0bffdb13a3d6216fe1fa73760&oe=5FFDE616";
         const imageSize = { width: '614px', height: '614px'};
         const likeCount = '1,234,234';
+        const postedTime = '1시간 전'; // 나중에 현재 시간 기준으로 db에 있는 포스트 등록 시간 뺀 결과로 초기화
+        
+        console.log(post);
+       */
+        const profileImagePath = "https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=bxdPI87bW5wAX8Qdz3L&tp=1&oh=469b3e6d7b1e3dfb69b872020178931a&oe=5FFAA577";
+        const userId = post.author;
+        const feedImagePath = post.images[0];
+        const imageSize = { width: '614px', height: 'auto'};
+        const likeCount = post.likes;
         const postedTime = '1시간 전'; // 나중에 현재 시간 기준으로 db에 있는 포스트 등록 시간 뺀 결과로 초기화
 
         return (
@@ -239,7 +311,6 @@ class FeedContent extends Component {
                 </section>
             </article>
         );
-    }
 }
 
 class MainBody extends Component {
@@ -255,7 +326,7 @@ class MainBody extends Component {
                         profileImagePath={imagePath} />
                 </section>
                 <section className="feed-content">
-                    <FeedContent />
+                    { Post.map(fc => <FeedContent post={fc} />)}
                 </section>
             </main>
         );
