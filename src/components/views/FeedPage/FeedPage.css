@@ -152,6 +152,10 @@ button {
     box-sizing: border-box;
     cursor: pointer;
 }
+.like-icon > svg {
+    width: 24px;
+    height: 24px;
+}
 .content-info {
     font-size: 14px;
 }
