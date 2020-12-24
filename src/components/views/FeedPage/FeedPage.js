@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import './FeedPage.css';
 
 const User = [
@@ -196,13 +196,12 @@ function FeedContent({ post }) {
     const userId = post.author;
     const feedImagePath = post.images[0];
     const imageSize = { width: '614px', height: 'auto'};
-    const [likeCount, setLikeCount] = useState(post.likes);
+    const [likeCount, setLikeCount] = useState(post.likes); // 좋아요 갯수
     const postedTime = '1시간 전'; // 나중에 현재 시간 기준으로 db에 있는 포스트 등록 시간 뺀 결과로 초기화
-    const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(false); // 좋아요 버튼 눌린 상태 = true, 좋아요 안 된 상태 = false
 
     const incrementLike = () => {
         setLikeCount(likeCount + 1);
-        // console.log(document.getElementById('empty-heart'));
         document.getElementById('empty-heart' + post.id).style.display="none";
         document.getElementById('filled-heart' + post.id).style.display="block";
 
@@ -215,6 +214,31 @@ function FeedContent({ post }) {
 
         setLiked(false);
     }
+
+    const reverseString = str => { // 문자열 str을 뒤집는 함수
+        let r = '';
+        
+        for(let i = str.length - 1; i >= 0; i--) {
+            r += str[i];
+        }
+        return r;
+    }
+
+    const addCommas = num => { // 앞에서부터 (3 x n)번째 문자 뒤에 콤마(,)를 붙여주는 함수 
+        let n = '';
+        for (let i = 0; i < num.length; i++) {
+            if ((i + 1) % 3 === 0 && i + 1 !== num.length) 
+                n += num[i] + ',';
+            else n += num[i];
+        }
+        
+        return reverseString(n);
+    }
+
+    useEffect(() => {
+        // console.log(addCommas(reverseString(likeCount+'')));
+        document.getElementById('like-stat'+post.id).innerHTML = `좋아요 ${addCommas(reverseString(likeCount+''))}개`;
+    }, [likeCount]);
     
     return (
         <article className="contents">
@@ -301,7 +325,7 @@ function FeedContent({ post }) {
                 </span>
             </section>
             <div style={{marginBottom: '8px'}}>
-                <button className="like-stat">
+                <button class="like-stat" id={'like-stat' + post.id}>
                     좋아요 {likeCount}개
                 </button>
             </div>
