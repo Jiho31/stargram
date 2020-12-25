@@ -17,6 +17,14 @@ const User = [
         profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=dvX0Zn7ohNQAX_okVe2&tp=1&oh=01ca61330501ed6bd3fb9c30323a30b9&oe=6007DD44',
         info: '',
     },
+    {
+        id: 'dailylooks_',
+        profileImage: '',
+    },
+    {
+        id: 'todaystyless',
+        profileImage: '',
+    }
 ];
 
 const Post = [
@@ -27,7 +35,7 @@ const Post = [
             'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/130589843_222637495993984_5959484901458307571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=sNHgwZluFSQAX8jMvXU&tp=1&oh=03eb30f0bffdb13a3d6216fe1fa73760&oe=5FFDE616'
         ],
         text: '어쩌고 저쩌고 랄랄라',
-        likes: 123234234,
+        likes: 123234229,
         postedAt: '2020-12-07 15:00:00'
     },
     {
@@ -58,11 +66,35 @@ const Post = [
         images: [
             'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/131458588_206428924364476_1752664538976446917_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=104&_nc_ohc=7DEKyr59ruMAX-9oG7u&tp=1&oh=5661957f53e0f17a6b5c8d12a3edecf8&oe=60047107'
         ],
-        text: '',
+        text: '💗💗💗',
         likes: 304,
         postedAt: '2020-12-17 22:50:00'
     },
 ];
+
+const PostComments = [
+    {
+        post_id: 1,
+        user: ['fan1', 'fan2', 'fan3', 'fan4'],
+        content: ['남주혁 존잘!', '사진 너무 예쁘다', '워후~~~~', '핫바디'],
+    },
+    {
+        post_id: 2,
+        user: ['dailylooks_'],
+        content: ['구매 각🤑'],
+    },
+    {
+        post_id: 3,
+        user: ['dailylooks_', 'dailylooks_'],
+        content: ['I love polo sweaterssssssss 💘💘', 'they look so cute!!'],
+    },
+    {
+        post_id: 4,
+        user: ['dailylooks_', 'todaystyless'],
+        content: ['so pretty', 'dm plz']
+    }
+
+]
 
 class HomeButton extends Component {
     render() {
@@ -133,9 +165,9 @@ class StoryContent extends Component {
 
 class CommentElement extends Component {
     render() {
-        const userName = this.props.info.username;
-        const comment = this.props.info.content;
-        const likedOrNot = this.props.info.liked;
+        const userName = this.props.username;
+        const comment = this.props.cont;
+        // const likedOrNot = this.props.info.liked;
 
         return (
             <li style={{marginBottom: '4px', display: 'flex'}}>
@@ -170,24 +202,27 @@ class CommentElement extends Component {
     }
 }
 
-class Comments extends Component {
-    render() {
-        // commentsInfo로 Class 생성해서 for문 돌려서 db에 있는 comment들 받아와서 객체 생성해서 하나씩 값 할당하고
-        // numOfComment 변수는 commentsInfo 객체 갯수로 값 초기화
-        let commentsInfo = [{ username: 'fan1', content: '남주혁 존잘!', liked: 0 }, { username: 'fan2', content: '핫바디', liked: 0 }];
-        // const commentsInfo = { username: 'fan1', content: '남주혁 존잘!', liked: 0 }
-        const numOfComments = '12,345';
+const Comments = (props) => {
+    // numOfComment 변수는 commentsInfo 객체 갯수로 값 초기화
+    // let commentsInfo = [{ username: 'fan1', content: '남주혁 존잘!', liked: 0 }, { username: 'fan2', content: '핫바디', liked: 0 }];
+    const commentsInfo = PostComments[props.id - 1]; // 해당 게시글의 댓글 객체를 id를 이용해서 찾아서 저장 
+    const numOfComments = commentsInfo.content.length; // 댓글의 갯수
 
-        return (
-            <section>
-                <button className="more-comments-button">댓글 {numOfComments}개 모두 보기</button>
-                <ul className="comments-box">
-                    <CommentElement info={commentsInfo[0]} />
-                    <CommentElement info={commentsInfo[1]} />
-                </ul>
-            </section>
-        );
-    }
+    // console.log(commentsInfo);
+
+    useEffect(() => { // 댓글 수 3개 이상부터 더보기 버튼 보이기
+        if (numOfComments <= 2) 
+            document.getElementById('more-comments-button' + props.id).style.display = "none";
+    }, [numOfComments]);
+
+    return (
+        <section>
+            <button className="more-comments-button" id={'more-comments-button' + props.id}>댓글 {numOfComments}개 모두 보기</button>
+            <ul className="comments-box">
+                <CommentElement username={commentsInfo.user[0]} cont={commentsInfo.content[0]} />
+            </ul>
+        </section>
+    );
 }
 
 function FeedContent({ post }) {
@@ -333,9 +368,9 @@ function FeedContent({ post }) {
                 <a href="#"
                     className="user-id">{userId}</a>
                 &nbsp;
-                <span style={{margin: '0'}}>어쩌고 저쩌고 랄랄라</span>
+                <span style={{margin: '0'}}>{post.text}</span>
             </section>
-            <Comments />
+            <Comments id={post.id} />
             <div style={{color: '#8e8e8e', fontSize: '10px', padding: '0 16px', margin: '6px 0'}}>{postedTime}</div>
             <section className="new-comment">
                 <form style={{width: '100%', height: '18px', display: 'inherit'}}>
