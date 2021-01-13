@@ -1,20 +1,28 @@
 import React, {Component, useState, useEffect} from 'react';
 import './FeedPage.css';
 
+const MyInfo = [
+    { 
+        id: 'bokjiho',
+        password: 123456,
+        profileImage: '',
+    }
+]
+
 const User = [
     {
         id: 'skawngur',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=bxdPI87bW5wAX8Qdz3L&tp=1&oh=469b3e6d7b1e3dfb69b872020178931a&oe=5FFAA577',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=2bZrAec51zwAX8vy3_S&tp=1&oh=9016dc7167ad183ef26caff66dcb0d5c&oe=60264C8F',
         info: '',
     },
     {
         id: 'drmartenskr',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/15875794_1373930115991468_4987196499470319616_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=34F6yMJb_ooAX8O_hu-&tp=1&oh=17cd0632dd849d95f2f6affedecc56bb&oe=6005008D',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/15875794_1373930115991468_4987196499470319616_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=lwB-sJDyR4kAX-utWBh&tp=1&oh=f32f018eede609a9cdf44daa2cf55ce6&oe=6028990D',
         info: '',
     },
     {
         id: 'poloralphlauren',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=dvX0Zn7ohNQAX_okVe2&tp=1&oh=01ca61330501ed6bd3fb9c30323a30b9&oe=6007DD44',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=MVGjZjpLw8AAX8x30bc&tp=1&oh=4c51c35c7ef412d86ea4d42ffe0c4eb4&oe=60278144',
         info: '',
     },
     {
@@ -31,8 +39,9 @@ const Post = [
     {
         id: 1,
         author: 'skawngur',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=2bZrAec51zwAX8vy3_S&tp=1&oh=9016dc7167ad183ef26caff66dcb0d5c&oe=60264C8F',
         images: [
-            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/130589843_222637495993984_5959484901458307571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=sNHgwZluFSQAX8jMvXU&tp=1&oh=03eb30f0bffdb13a3d6216fe1fa73760&oe=5FFDE616'
+            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/130589843_222637495993984_5959484901458307571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=LwW7Dv7kBIkAX9nNWAs&tp=1&oh=921c20c9e8878618c8e99eb664439760&oe=60296796'
         ],
         text: '어쩌고 저쩌고 랄랄라',
         likes: 123234229,
@@ -41,6 +50,7 @@ const Post = [
     {
         id: 2,
         author: 'poloralphlauren',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=MVGjZjpLw8AAX8x30bc&tp=1&oh=4c51c35c7ef412d86ea4d42ffe0c4eb4&oe=60278144',
         images: [
             'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131455080_829183747877584_5453324326804325571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=4RI4PCjLl7IAX92isB6&tp=1&oh=c57541c2b74785514af610e4ce350a62&oe=60045236'
         ],
@@ -51,6 +61,7 @@ const Post = [
     {
         id: 3,
         author: 'poloralphlauren',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=MVGjZjpLw8AAX8x30bc&tp=1&oh=4c51c35c7ef412d86ea4d42ffe0c4eb4&oe=60278144',
         images: [
             'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131589987_3045257572361045_8745769169625157140_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=ihgCMNZMymcAX8SDWFO&tp=1&oh=92b76d79f8f314317a1c4efaad015f89&oe=60076C22', 
             'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131398957_1041215406362239_8729289068274547975_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=Ra-xO9FOpusAX89d8OH&tp=1&oh=d6cf8227a1b9491d999558ed617ce5f4&oe=600453AF', 
@@ -63,6 +74,7 @@ const Post = [
     {
         id: 4,
         author: 'drmartenskr',
+        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/15875794_1373930115991468_4987196499470319616_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=lwB-sJDyR4kAX-utWBh&tp=1&oh=f32f018eede609a9cdf44daa2cf55ce6&oe=6028990D',
         images: [
             'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/131458588_206428924364476_1752664538976446917_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=104&_nc_ohc=7DEKyr59ruMAX-9oG7u&tp=1&oh=5661957f53e0f17a6b5c8d12a3edecf8&oe=60047107'
         ],
@@ -76,7 +88,7 @@ const PostComments = [
     {
         post_id: 1,
         user: ['fan1', 'fan2', 'fan3', 'fan4'],
-        content: ['남주혁 존잘!', '사진 너무 예쁘다', '워후~~~~', '핫바디'],
+        content: ['남주혁 존잘!', '사진 너무 예쁘다', '워후~~~~', '캬~ 잘생겼구만'],
     },
     {
         post_id: 2,
@@ -204,30 +216,49 @@ class CommentElement extends Component {
 
 const Comments = (props) => {
     // numOfComment 변수는 commentsInfo 객체 갯수로 값 초기화
-    // let commentsInfo = [{ username: 'fan1', content: '남주혁 존잘!', liked: 0 }, { username: 'fan2', content: '핫바디', liked: 0 }];
-    const commentsInfo = PostComments[props.id - 1]; // 해당 게시글의 댓글 객체를 id를 이용해서 찾아서 저장 
+    const [commentsInfo, setCommentsInfo] = useState(PostComments[props.id - 1]); // 해당 게시글의 댓글 객체를 id를 이용해서 찾아서 저장 
     const numOfComments = commentsInfo.content.length; // 댓글의 갯수
 
-    // console.log(commentsInfo);
-
     useEffect(() => { // 댓글 수 3개 이상부터 더보기 버튼 보이기
-        if (numOfComments <= 2) 
-            document.getElementById('more-comments-button' + props.id).style.display = "none";
+        if (numOfComments <= 2)
+            document.getElementById('more-comments-button' + props.id).style.display = "none";         
     }, [numOfComments]);
 
     return (
         <section>
             <button className="more-comments-button" id={'more-comments-button' + props.id}>댓글 {numOfComments}개 모두 보기</button>
             <ul className="comments-box">
-                <CommentElement username={commentsInfo.user[0]} cont={commentsInfo.content[0]} />
+            {numOfComments >= 2 && 
+                <CommentElement username={commentsInfo.user[numOfComments-2]} cont={commentsInfo.content[numOfComments-2]} />
+            }
+                <CommentElement username={commentsInfo.user[numOfComments-1]} cont={commentsInfo.content[numOfComments-1]} />
             </ul>
+        </section>
+    );
+}
+
+const NewComments = props => {
+    
+    return (
+        <section className="new-comment">
+            <form style={{width: '100%', height: '18px', display: 'inherit'}}>
+                <textarea placeholder="댓글 달기..."></textarea>
+                <button style={{
+                    font: 'inherit', 
+                    color: '#0095f6', 
+                    fontWeight: 600, 
+                    cursor: 'pointer', 
+                    marginLeft: 'auto'}}>
+                    게시
+                </button>
+            </form>
         </section>
     );
 }
 
 function FeedContent({ post }) {
 
-    const profileImagePath = "https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=bxdPI87bW5wAX8Qdz3L&tp=1&oh=469b3e6d7b1e3dfb69b872020178931a&oe=5FFAA577";
+    const profileImagePath = post.profileImage;
     const userId = post.author;
     const feedImagePath = post.images[0];
     const imageSize = { width: '614px', height: 'auto'};
@@ -372,27 +403,16 @@ function FeedContent({ post }) {
             </section>
             <Comments id={post.id} />
             <div style={{color: '#8e8e8e', fontSize: '10px', padding: '0 16px', margin: '6px 0'}}>{postedTime}</div>
-            <section className="new-comment">
-                <form style={{width: '100%', height: '18px', display: 'inherit'}}>
-                    <textarea placeholder="댓글 달기..."></textarea>
-                    <button style={{font: 'inherit', color: '#0095f6', fontWeight: 600, cursor: 'pointer', marginLeft: 'auto'}}>게시</button>
-                </form>
-            </section>
+            <NewComments />
         </article>
     );
 }
 
 class MainBody extends Component {
     render() {
-        const imagePath = "https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/123286692_636049017275345_9161752167566283993_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=6T2wLw9gL5oAX99vxLM&tp=1&oh=3f6d12f8114066dc9787b17a76b2e459&oe=5FFBA2AA";
-
         return (
             <main className="main-body">
                 <section className="story-box">
-                    <StoryContent uid="diptyque" 
-                        profileImagePath={imagePath} />
-                    <StoryContent uid="skuukzky" 
-                        profileImagePath={imagePath} />
                 </section>
                 <section className="feed-content">
                     { Post.map(fc => <FeedContent post={fc} />)}

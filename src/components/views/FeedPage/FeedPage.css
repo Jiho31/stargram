@@ -9,6 +9,9 @@ button {
     background: none;
     border: none;
 }
+textarea:focus, input:focus {
+    outline: none;
+}
 /* navigation bar */
 .nav-bar {
     display: flex;
@@ -234,4 +237,10 @@ button {
 .my-userid {
     font-size: 14px;
     margin-left: 12px;
+}
+
+@media (max-width: 1000px) {
+    aside {
+        display: none;
+    }
 }
