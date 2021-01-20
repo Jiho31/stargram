@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react';
 import React, {Component, useState, useEffect} from 'react';
 import './FeedPage.css';
 
@@ -9,39 +10,13 @@ const MyInfo = [
     }
 ]
 
-const User = [
-    {
-        id: 'skawngur',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=2bZrAec51zwAX8vy3_S&tp=1&oh=9016dc7167ad183ef26caff66dcb0d5c&oe=60264C8F',
-        info: '',
-    },
-    {
-        id: 'drmartenskr',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/15875794_1373930115991468_4987196499470319616_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=lwB-sJDyR4kAX-utWBh&tp=1&oh=f32f018eede609a9cdf44daa2cf55ce6&oe=6028990D',
-        info: '',
-    },
-    {
-        id: 'poloralphlauren',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=MVGjZjpLw8AAX8x30bc&tp=1&oh=4c51c35c7ef412d86ea4d42ffe0c4eb4&oe=60278144',
-        info: '',
-    },
-    {
-        id: 'dailylooks_',
-        profileImage: '',
-    },
-    {
-        id: 'todaystyless',
-        profileImage: '',
-    }
-];
-
 const Post = [
     {
         id: 1,
         author: 'skawngur',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/126964130_733939787328468_8366251146435214274_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=2bZrAec51zwAX8vy3_S&tp=1&oh=9016dc7167ad183ef26caff66dcb0d5c&oe=60264C8F',
+        profileImage: '../../../images/profile_skawngur.jpg',
         images: [
-            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/130589843_222637495993984_5959484901458307571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=LwW7Dv7kBIkAX9nNWAs&tp=1&oh=921c20c9e8878618c8e99eb664439760&oe=60296796'
+            '../../../images/post1'
         ],
         text: '어쩌고 저쩌고 랄랄라',
         likes: 123234229,
@@ -50,9 +25,9 @@ const Post = [
     {
         id: 2,
         author: 'poloralphlauren',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=MVGjZjpLw8AAX8x30bc&tp=1&oh=4c51c35c7ef412d86ea4d42ffe0c4eb4&oe=60278144',
+        profileImage: '../../../images/profile_poloralphlauren.jpg',
         images: [
-            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131455080_829183747877584_5453324326804325571_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=4RI4PCjLl7IAX92isB6&tp=1&oh=c57541c2b74785514af610e4ce350a62&oe=60045236'
+            '../../../images/post2jpg'
         ],
         text: 'Timeless Style.',
         likes: 5432,
@@ -61,11 +36,11 @@ const Post = [
     {
         id: 3,
         author: 'poloralphlauren',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/123404238_187935629572990_9195968096686055845_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=MVGjZjpLw8AAX8x30bc&tp=1&oh=4c51c35c7ef412d86ea4d42ffe0c4eb4&oe=60278144',
+        profileImage: '../../../images/profile_poloralphlauren.jpg',
         images: [
-            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131589987_3045257572361045_8745769169625157140_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=ihgCMNZMymcAX8SDWFO&tp=1&oh=92b76d79f8f314317a1c4efaad015f89&oe=60076C22', 
-            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131398957_1041215406362239_8729289068274547975_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=Ra-xO9FOpusAX89d8OH&tp=1&oh=d6cf8227a1b9491d999558ed617ce5f4&oe=600453AF', 
-            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/131894384_828862237903126_8364150345157521864_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=qR9YmRNApVMAX9ZVAQy&tp=1&oh=0bdd6278b7a8bb3d3c5feb9f6e47029c&oe=60061C95'
+            '../../../images/post3.jpg', 
+            '../../../images/post3 (2).jpg', 
+            '../../../images/post3 (3).jpg'
         ],
         text: 'Holiday essentials for your loved ones.',
         likes: 20001,
@@ -74,9 +49,9 @@ const Post = [
     {
         id: 4,
         author: 'drmartenskr',
-        profileImage: 'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/15875794_1373930115991468_4987196499470319616_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=lwB-sJDyR4kAX-utWBh&tp=1&oh=f32f018eede609a9cdf44daa2cf55ce6&oe=6028990D',
+        profileImage: '../../../images/profile_drmartenskr.jpg',
         images: [
-            'https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/131458588_206428924364476_1752664538976446917_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=104&_nc_ohc=7DEKyr59ruMAX-9oG7u&tp=1&oh=5661957f53e0f17a6b5c8d12a3edecf8&oe=60047107'
+            '../../../images/post4.jpg'
         ],
         text: '💗💗💗',
         likes: 304,
@@ -97,7 +72,7 @@ const PostComments = [
     },
     {
         post_id: 3,
-        user: ['dailylooks_', 'dailylooks_'],
+        user: ['dailylooks_', 'ootdfashion'],
         content: ['I love polo sweaterssssssss 💘💘', 'they look so cute!!'],
     },
     {
@@ -258,12 +233,11 @@ const NewComments = props => {
 
 function FeedContent({ post }) {
 
-    const profileImagePath = post.profileImage;
     const userId = post.author;
     const feedImagePath = post.images[0];
     const imageSize = { width: '614px', height: 'auto'};
-    const [likeCount, setLikeCount] = useState(post.likes); // 좋아요 갯수
     const postedTime = '1시간 전'; // 나중에 현재 시간 기준으로 db에 있는 포스트 등록 시간 뺀 결과로 초기화
+    const [likeCount, setLikeCount] = useState(post.likes); // 좋아요 갯수
     const [liked, setLiked] = useState(false); // 좋아요 버튼 눌린 상태 = true, 좋아요 안 된 상태 = false
 
     const incrementLike = () => {
@@ -312,7 +286,7 @@ function FeedContent({ post }) {
                 <div style={{display: 'flex'}}>
                     <span style={{ width: '32px', height: '32px'}}>
                         <a className="profile-img" href="#">
-                            <img src={profileImagePath} alt={userId + '님의 프로필 사진'} />   
+                            <img src={require('../../../images/profile_'+ userId +'.jpg')} alt={userId + '님의 프로필 사진'} />   
                         </a>
                     </span>
                     
@@ -329,7 +303,7 @@ function FeedContent({ post }) {
                 </div>
             </section>
             <img className="content-image" alt={post.id + '번째 피드'}
-                src={feedImagePath}
+                src={require('../../../images/post' + post.id + '.jpg')}
                 style={{width: imageSize.width, height: imageSize.height}}/>
             <section className="content-buttons">
                 <span className="like-icon"
@@ -415,7 +389,7 @@ class MainBody extends Component {
                 <section className="story-box">
                 </section>
                 <section className="feed-content">
-                    { Post.map(fc => <FeedContent post={fc} />)}
+                    { Post.map(fc => <FeedContent key={fc.id} post={fc} />)}
                 </section>
             </main>
         );
@@ -429,7 +403,7 @@ class MyProfile extends Component {
                 <span style={{width: '56px', height: '56px'}}>
                     <a className="profile-img">
                         <img alt="profile image"
-                            src="https://instagram.fakl4-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fakl4-1.fna.fbcdn.net&_nc_ohc=O2yhhr3Hd90AX-g48SG&oh=d8fe77e52c08e1384eee2205c7fbf299&oe=6000FA8F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" />
+                            src={require('../../../images/profile_default.jpg')} />
                     </a>
                 </span>
                 <span className="my-userid"
@@ -451,7 +425,7 @@ class UserProfile extends Component {
                     <span style={{width: '32px', height: '32px'}}>
                         <a className="profile-img">
                             <img alt={this.props.userId + '님의 프로필 사진'}
-                                src="https://instagram.fakl4-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fakl4-1.fna.fbcdn.net&_nc_ohc=O2yhhr3Hd90AX-g48SG&oh=d8fe77e52c08e1384eee2205c7fbf299&oe=6000FA8F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" />
+                                src={require('../../../images/profile_default.jpg')} />
                         </a>
                     </span>
                     <span className="my-userid"
