@@ -213,19 +213,40 @@ const Comments = (props) => {
 }
 
 const NewComments = props => {
+
+    const [commentInput, setCommentInput] = useState();
+
+    useEffect(() => {
+        document.getElementById('comment-input' + props.id).addEventListener('change', e => {
+            setCommentInput(e.target.value);
+        });
+
+    })
+
+    useEffect(() => {
+       document.getElementById('comment-form' + props.id).addEventListener('submit', e => {
+            e.preventDefault(); // 새로고침 방지
+
+            // console.log(document.getElementById('comment-input' + props.id).value);
+            alert(commentInput);
+        }); 
+    })
+    
     
     return (
         <section className="new-comment">
-            <form style={{width: '100%', height: '18px', display: 'inherit'}}>
-                <textarea placeholder="댓글 달기..."></textarea>
-                <button style={{
-                    font: 'inherit', 
-                    color: '#0095f6', 
-                    fontWeight: 600, 
-                    cursor: 'pointer', 
-                    marginLeft: 'auto'}}>
-                    게시
-                </button>
+            <form id={'comment-form' + props.id} style={{width: '100%', height: '18px', display: 'inherit'}}>
+                <textarea id={'comment-input' + props.id } name="comment-input" placeholder="댓글 달기..." value={commentInput}></textarea>
+                <input type="submit"
+                    style={{
+                        background: 'none',
+                        border: 'none',
+                        font: 'inherit', 
+                        color: '#0095f6', 
+                        fontWeight: 600, 
+                        cursor: 'pointer', 
+                        marginLeft: 'auto'}}
+                    value="게시" />
             </form>
         </section>
     );
@@ -377,7 +398,7 @@ function FeedContent({ post }) {
             </section>
             <Comments id={post.id} />
             <div style={{color: '#8e8e8e', fontSize: '10px', padding: '0 16px', margin: '6px 0'}}>{postedTime}</div>
-            <NewComments />
+            <NewComments id={post.id} />
         </article>
     );
 }
