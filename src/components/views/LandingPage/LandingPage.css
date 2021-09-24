@@ -1,127 +1,140 @@
-html, body, #root, .App {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+html,
+body,
+#root,
+.App {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 }
-.iphone-image {
-    background: url('https://instagram.com/static/images/homepage/home-phones.png/43cc71bb1b43.png');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 454px 618px;
-    width: 454px;
-    height: 618px;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 350px;
-    height: 377.8px;
-    border: 1px solid #dbdbdb;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.insta-logo {
-    background: url('https://instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png');
-    background-repeat: no-repeat;
-    background-position: 0 -130px;
-    height: 51px;
-    width: 175px;
+.login-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 377.8px;
+  border: 1px solid #dbdbdb;
+}
+.stargram-logo {
+  font-family: "Raleway", sans-serif;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
 }
 .login-form {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 .login-form > input {
-    box-sizing: border-box;
-    background: #fafafa;
-    width: 266px;
-    height: 36px;
-    font-size: 12px;
-    line-height: 18px;
-    border: 1px solid #dbdbdb;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    padding: 7px;
+  box-sizing: border-box;
+  background: #fafafa;
+  width: 266px;
+  height: 36px;
+  font-size: 12px;
+  line-height: 18px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  padding: 7px;
 }
 .login-form > button {
-    background: #0095f6;
-    width: 268px;
-    height: 29.6px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 10px 0;
+  background: #0095f6;
+  width: 268px;
+  height: 29.6px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
 }
 .divider {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 268px;
-    line-height: 15px;
-    margin: 12px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 268px;
+  line-height: 15px;
+  margin: 12px auto;
 }
 .dividing-bar {
-    height: 1.5px;
-    width: 40%;
-    background-color: #dbdbdb;
+  height: 1.5px;
+  width: 40%;
+  background-color: #dbdbdb;
 }
 .facebook-login {
-    color: #385185;
-    display: inline-flex;
-    align-items: center;
-    margin: 10px auto;
+  color: #385185;
+  display: inline-flex;
+  align-items: center;
+  margin: 10px auto;
 }
 .facebook-logo {
-    display: inline-block;
-    background: url('https://instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png');
-    background-repeat: no-repeat;
-    background-position: -414px -259px;
-    height: 16px;
-    width: 16px;
-    margin-right: 10px;
+  display: inline-block;
+  background: url("https://instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png");
+  background-repeat: no-repeat;
+  background-position: -414px -259px;
+  height: 16px;
+  width: 16px;
+  margin-right: 10px;
 }
 .find-password {
-    color: #00376b;
-    font-size: 12px;
-    line-height: 14px;
-    margin-top: 10px;
+  color: #00376b;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 10px;
+}
+.register-container {
+  margin-top: 0.5rem;
 }
 #registerButton {
-    display: inline-box;
-    border: none;
-    background: none;
-    color: #0095f6;
-    font-size: 14px;
-    font-weight: 600;
+  display: inline-box;
+  border: none;
+  background: none;
+  color: #0095f6;
+  font-size: 14px;
+  font-weight: 600;
 }
 .footer {
-    width: 90%;
-    display: inline-flex;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0.5rem;
+  align-items: center;
+  padding-bottom: 1rem;
 }
 .footer > nav {
-    display: flex;
-    width: 70%;
-    justify-content: space-between;
+  display: flex;
+  width: 70%;
 }
 .footer > nav > ul {
-    list-style: none;
-    width: 100%;
-    color: #00376b;
-    font-size: 13px;
-    font-weight: 600;
+  list-style: none;
+  width: 100%;
+  color: #00376b;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
 }
 .copyright-info {
-    width: 30%;
-    color: #8e8e8e;
-    font-size: 13px;
-    font-weight: 600;
-    margin: auto;
+  width: 30%;
+  color: #8e8e8e;
+  font-size: 13px;
+  font-weight: 600;
+  margin: auto;
+  text-align: center;
 }
