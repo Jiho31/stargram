@@ -2,20 +2,14 @@ import React, { Component } from "react";
 import "./LandingPage.css";
 
 const LoginContainer = () => {
-  const handleClick = () => {
-    document.location.href = "/feed";
-  };
-
   return (
     <div className="login-container">
       <section className="login-body">
         <h1 className="stargram-logo">Stargram</h1>
         <form className="login-form">
           <input placeholder="전화번호, 사용자 이름 또는 이메일" />
-
           <input type="password" placeholder="비밀번호" />
-
-          <button onClick={handleClick}>로그인</button>
+          <button>로그인</button>
         </form>
         <div className="divider">
           <div className="dividing-bar"></div>

@@ -1,0 +1,252 @@
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+button {
+  /* button 기본 스타일 제거 */
+  background: none;
+  border: none;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+/* navigation bar */
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  height: 54px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 975px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.search-input {
+  width: 215px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background-color: #fafafa;
+}
+.nav-icons {
+  background: url("../images/nav-icons.JPG");
+  background-size: 210px 27px;
+  width: 210px;
+  height: 27px;
+}
+
+/* feed contents */
+.feed-body {
+  width: 100%;
+  background-color: #fafafa;
+  border-top: solid 1px #dbdbdb;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+.main-body {
+  width: 614px;
+  margin-right: 28px;
+  /* max-width: 614px; */
+}
+.story-box {
+  width: inherit;
+  height: 118px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 16px 10px;
+  box-sizing: border-box;
+  margin-bottom: 24px;
+}
+.story-box > span {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.story-circle {
+  width: 66px;
+  height: 66px;
+  border: 2px solid cornflowerblue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.story-user-id {
+  margin-top: 5px;
+  font-size: 12px;
+  max-width: 74px;
+  line-height: 13.6px;
+  text-align: center;
+}
+.feed-content {
+  width: 100%;
+}
+.user-id {
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+}
+.content-header {
+  width: 100%;
+  height: 60px;
+  padding: 16px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dbdbdb;
+}
+.contents {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  margin-bottom: 60px;
+}
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.menu-icon > span:first-child {
+  display: block;
+  background-image: url("../images/menu-icon.JPG");
+  background-size: 16px;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+.content-image {
+}
+.like-stat,
+.content-info,
+.more-comments-button,
+.comments-box,
+.new-comment,
+.content-buttons {
+  padding: 0 16px;
+}
+.like-stat {
+  font-size: 14px;
+  font-weight: 600;
+  color: #262626;
+  cursor: pointer;
+}
+.content-buttons {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.like-icon,
+.send-message-icon,
+.comment-icon,
+.bookmark-icon {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  padding: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.like-icon > svg {
+  width: 24px;
+  height: 24px;
+}
+.content-info {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.more-comments-button {
+  width: 100%;
+  font-size: 14px;
+  color: #8e8e8e;
+  cursor: pointer;
+  text-align: start;
+  margin-bottom: 4px;
+}
+.comments-box {
+  list-style: none;
+  font-size: 14px;
+  margin: 0;
+}
+.new-comment {
+  width: 100%;
+  height: 56px;
+  box-sizing: border-box;
+  border-top: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.new-comment > form > textarea {
+  width: 90%;
+  height: inherit;
+  padding: 0;
+  border: 0;
+  resize: none;
+  font: inherit;
+}
+
+/* Aside */
+.side-body {
+  width: 100%;
+  max-width: 293px;
+  height: 100vh;
+}
+.my-profile {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+.profile-img > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.profile-img::after {
+  content: "";
+  border: 1px solid rgba(0, 0, 0, 0.0975);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.my-userid {
+  font-size: 14px;
+  margin-left: 12px;
+}
+
+@media (max-width: 1000px) {
+  aside {
+    display: none;
+  }
+}
