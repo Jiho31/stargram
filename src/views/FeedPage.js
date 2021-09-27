@@ -71,7 +71,7 @@ class FeedNav extends Component {
     return (
       <nav className="nav-bar">
         <section>
-          <span class="stargram-logo">Stargram</span>
+          <span className="stargram-logo">Stargram</span>
         </section>
         <section>
           <SearchBar />
@@ -281,7 +281,7 @@ function FeedContent({ post }) {
         </span>
       </section>
       <div style={{ marginBottom: "8px" }}>
-        <button class="like-stat" id={"like-stat" + post.id}>
+        <button className="like-stat" id={"like-stat" + post.id}>
           좋아요 {likeCount}개
         </button>
       </div>
@@ -457,7 +457,7 @@ class FeedBody extends Component {
     return (
       <div className="feed-body">
         <MainBody />
-        <SideBody />
+        {/* <SideBody /> */}
       </div>
     );
   }
