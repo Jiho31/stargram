@@ -2,51 +2,62 @@ import React, { useState, useEffect } from "react";
 
 const NewComment = (props) => {
   const [commentInput, setCommentInput] = useState();
+  const [isValid, setIsValid] = useState(false);
+
+  const commentInputChangeHandler = (e) => {
+    setCommentInput(e.target.value);
+  };
 
   useEffect(() => {
-    document
-      .getElementById("comment-input" + props.id)
-      .addEventListener("change", (e) => {
-        setCommentInput(e.target.value);
-      });
-  });
+    if (commentInput && commentInput.trim() !== "") {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  }, [commentInput]);
 
-  useEffect(() => {
-    document
-      .getElementById("comment-form" + props.id)
-      .addEventListener("submit", (e) => {
-        e.preventDefault(); // 새로고침 방지
+  const formSubmissionHandler = (e) => {
+    e.preventDefault();
 
-        // console.log(document.getElementById('comment-input' + props.id).value);
-        alert(commentInput);
-      });
-  });
+    // 1. 댓글 입력값 확인
+    if (isValid) {
+      // 2. 댓글 등록
+      console.log(commentInput);
+
+      // 3. 댓글 입력 칸 비우기
+      setCommentInput("");
+      setIsValid(false);
+    }
+  };
+
+  const validButton = (
+    <button type="submit" style={{ opacity: "1", cursor: "pointer" }}>
+      게시
+    </button>
+  );
+  const invalidButton = <button type="submit">게시</button>;
 
   return (
     <section className="new-comment">
       <form
+        key={props.id}
         id={"comment-form" + props.id}
-        style={{ width: "100%", height: "18px", display: "inherit" }}
+        style={{
+          width: "100%",
+          height: "18px",
+          display: "inherit",
+          alignItems: "center",
+        }}
+        onSubmit={formSubmissionHandler}
       >
         <textarea
           id={"comment-input" + props.id}
           name="comment-input"
           placeholder="댓글 달기..."
           value={commentInput}
+          onChange={commentInputChangeHandler}
         ></textarea>
-        <input
-          type="submit"
-          style={{
-            background: "none",
-            border: "none",
-            font: "inherit",
-            color: "#0095f6",
-            fontWeight: 600,
-            cursor: "pointer",
-            marginLeft: "auto",
-          }}
-          value="게시"
-        />
+        {isValid ? validButton : invalidButton}
       </form>
     </section>
   );

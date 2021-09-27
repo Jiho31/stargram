@@ -195,7 +195,7 @@ input:focus {
 }
 .new-comment {
   width: 100%;
-  height: 56px;
+  min-height: 56px;
   box-sizing: border-box;
   border-top: 1px solid #dbdbdb;
   display: flex;
@@ -209,6 +209,17 @@ input:focus {
   border: 0;
   resize: none;
   font: inherit;
+}
+.new-comment > form > button {
+  background: none;
+  height: 18px;
+  border: none;
+  font: inherit;
+  color: #0095f6;
+  font-weight: 600;
+  cursor: text;
+  margin-left: auto;
+  opacity: 0.5;
 }
 
 /* Aside */
