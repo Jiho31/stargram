@@ -1,7 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 const LoginContainer = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    document.querySelector("#login-button").click();
+  };
+
   return (
     <div className="login-container">
       <section className="login-body">
@@ -9,7 +15,11 @@ const LoginContainer = () => {
         <form className="login-form">
           <input placeholder="전화번호, 사용자 이름 또는 이메일" />
           <input type="password" placeholder="비밀번호" />
-          <button>로그인</button>
+          <button onClick={handleClick}>
+            <Link id="login-button" to="/feed">
+              로그인
+            </Link>
+          </button>
         </form>
         <div className="divider">
           <div className="dividing-bar"></div>

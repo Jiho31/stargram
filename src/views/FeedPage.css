@@ -25,6 +25,16 @@ input:focus {
   margin: 0 auto;
   box-sizing: border-box;
 }
+.stargram-logo {
+  width: 103px;
+  /* height: 29px; */
+  display: block;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 1.4em;
+  line-height: 1.4em;
+  cursor: pointer;
+}
 .search-input {
   width: 215px;
   height: 28px;

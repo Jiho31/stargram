@@ -75,18 +75,6 @@ const PostComments = [
   },
 ];
 
-class HomeButton extends Component {
-  render() {
-    return (
-      <img
-        src="https://instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-        style={{ width: "103px", height: "29px", display: "block" }}
-        alt="homebutton"
-      />
-    );
-  }
-}
-
 class SearchBar extends Component {
   render() {
     return <input className="search-input" placeholder="검색" />;
@@ -104,7 +92,7 @@ class FeedNav extends Component {
     return (
       <nav className="nav-bar">
         <section>
-          <HomeButton />
+          <span class="stargram-logo">Stargram</span>
         </section>
         <section>
           <SearchBar />

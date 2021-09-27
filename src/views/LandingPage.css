@@ -61,6 +61,11 @@ main {
   font-size: 14px;
   font-weight: 600;
   margin: 10px 0;
+  cursor: pointer;
+}
+#login-button {
+  text-decoration: none;
+  color: inherit;
 }
 .divider {
   display: flex;
