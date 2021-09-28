@@ -24,12 +24,40 @@ const commentsDummyData = [
   },
 ];
 
+const commentsData = [
+  {
+    postId: 1,
+    data: [
+      { userId: "fan1", content: "남주혁 존잘" },
+      { userId: "fan2", content: "사진 너무 예쁘다" },
+      { userId: "fan3", content: "워후~~~~" },
+      { userId: "fan4", content: "pretty boy <3<3" },
+    ],
+  },
+  {
+    postId: 2,
+    data: [{ userId: "dailylooks_", content: "구매 각🤑" }],
+  },
+  {
+    postId: 3,
+    data: [
+      { userId: "dailylooks_", content: "I love polo sweaterssssssss 💘💘" },
+      { userId: "ootdfashion", content: "they look so cute!!" },
+    ],
+  },
+  {
+    postId: 4,
+    data: [
+      { userId: "dailylooks_", content: "so pretty" },
+      { userId: "todaystyless", content: "dm plz" },
+    ],
+  },
+];
+
 const Comments = (props) => {
   // numOfComment 변수는 commentsInfo 객체 갯수로 값 초기화
-  const [commentsInfo, setCommentsInfo] = useState(
-    commentsDummyData[props.id - 1]
-  ); // 해당 게시글의 댓글 객체를 id를 이용해서 찾아서 저장
-  const numOfComments = commentsInfo.content.length; // 댓글의 갯수
+  const [commentsInfo, setCommentsInfo] = useState(commentsData[props.id - 1]); // 해당 게시글의 댓글 객체를 id를 이용해서 찾아서 저장
+  const numOfComments = commentsInfo.data.length; // 댓글의 갯수
 
   useEffect(() => {
     // 댓글 수 3개 이상부터 더보기 버튼 보이기
@@ -47,16 +75,11 @@ const Comments = (props) => {
         댓글 {numOfComments}개 모두 보기
       </button>
       <ul className="comments-box">
-        {numOfComments >= 2 && (
-          <CommentElement
-            username={commentsInfo.user[numOfComments - 2]}
-            cont={commentsInfo.content[numOfComments - 2]}
-          />
-        )}
-        <CommentElement
-          username={commentsInfo.user[numOfComments - 1]}
-          cont={commentsInfo.content[numOfComments - 1]}
-        />
+        {commentsData[props.id - 1].data.map((comment) => {
+          return (
+            <CommentElement username={comment.userId} cont={comment.content} />
+          );
+        })}
       </ul>
     </section>
   );
