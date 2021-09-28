@@ -196,15 +196,24 @@ input:focus {
 .new-comment {
   width: 100%;
   min-height: 56px;
+  max-height: 84px;
   box-sizing: border-box;
   border-top: 1px solid #dbdbdb;
   display: flex;
   align-items: center;
   font-size: 14px;
 }
+.new-comment > form {
+  width: 100%;
+  height: auto;
+  max-height: 84px;
+  overflow: hidden;
+  display: inherit;
+  align-items: center;
+}
 .new-comment > form > textarea {
   width: 90%;
-  height: inherit;
+  height: 20px;
   padding: 0;
   border: 0;
   resize: none;
