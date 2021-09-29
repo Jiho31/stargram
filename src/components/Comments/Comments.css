@@ -1,0 +1,55 @@
+button {
+  /* button 기본 스타일 제거 */
+  background: none;
+  border: none;
+}
+.comments-box {
+  list-style: none;
+  font-size: 14px;
+  margin: 0;
+}
+.new-comment {
+  width: 100%;
+  min-height: 56px;
+  max-height: 84px;
+  box-sizing: border-box;
+  border-top: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.new-comment > form {
+  width: 100%;
+  height: auto;
+  max-height: 84px;
+  overflow: hidden;
+  display: inherit;
+  align-items: center;
+}
+.new-comment > form > textarea {
+  width: 90%;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  resize: none;
+  font: inherit;
+}
+.new-comment > form > button {
+  background: none;
+  height: 18px;
+  border: none;
+  font: inherit;
+  color: #0095f6;
+  font-weight: 600;
+  cursor: text;
+  margin-left: auto;
+  opacity: 0.5;
+}
+.delete-comment-button {
+  width: 9px;
+  height: 9px;
+  background-image: url("../../images/delete-icon.png");
+  background-size: cover;
+  padding: 0;
+  cursor: pointer;
+}

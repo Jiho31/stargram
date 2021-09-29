@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import CommentElement from "./CommentElement";
 import NewComment from "./NewComment";
 
+import "./Comments.css";
+
 // const commentsData = [
 //   {
 //     postId: 1,
@@ -39,17 +41,23 @@ const Comments = ({ commentsData }) => {
 
   const postedTime = "1시간 전"; // 나중에 현재 시간 기준으로 db에 있는 포스트 등록 시간 뺀 결과로 초기화
 
-  useEffect(() => {
-    // 댓글 수 3개 이상부터 더보기 버튼 보이기
-    if (numOfComments <= 2)
-      document.getElementById(
-        "more-comments-button" + commentsData.id
-      ).style.display = "none";
-  }, [numOfComments]);
+  // useEffect(() => {
+  //   // 댓글 수 3개 이상부터 더보기 버튼 보이기
+  //   if (numOfComments <= 2)
+  //     document.getElementById(
+  //       "more-comments-button" + commentsData.id
+  //     ).style.display = "none";
+  // }, [numOfComments]);
 
   const addCommentHandler = (content) => {
     setCommentsInfo((prevState) => {
-      return [...prevState, { ...content, id: prevState.length }];
+      return [...prevState, { ...content, id: prevState.length + 1 }];
+    });
+  };
+
+  const deleteCommentHandler = (id) => {
+    setCommentsInfo((prevState) => {
+      return prevState.filter((comment) => comment.id !== id);
     });
   };
 
@@ -67,8 +75,10 @@ const Comments = ({ commentsData }) => {
             return (
               <CommentElement
                 key={comment.id}
+                id={comment.id}
                 username={comment.username}
                 cont={comment.content}
+                onDelete={deleteCommentHandler}
               />
             );
           })}
