@@ -6,7 +6,7 @@ const FeedPost = ({ post }) => {
   const userId = post.author;
   const feedImagePath = post.images[0];
   const imageSize = { width: "614px", height: "auto" };
-  const postedTime = "1시간 전"; // 나중에 현재 시간 기준으로 db에 있는 포스트 등록 시간 뺀 결과로 초기화
+
   const [likeCount, setLikeCount] = useState(post.likes); // 좋아요 갯수
   const [liked, setLiked] = useState(false); // 좋아요 버튼 눌린 상태 = true, 좋아요 안 된 상태 = false
 
@@ -27,12 +27,7 @@ const FeedPost = ({ post }) => {
 
   const reverseString = (str) => {
     // 문자열 str을 뒤집는 함수
-    let r = "";
-
-    for (let i = str.length - 1; i >= 0; i--) {
-      r += str[i];
-    }
-    return r;
+    return Array.from(str).reverse().join("");
   };
 
   const addCommas = (num) => {
@@ -71,10 +66,10 @@ const FeedPost = ({ post }) => {
               {userId}
             </a>
           </span>
-          <a href="#" className="menu-icon">
+          <button className="menu-icon">
             <span />
             <span style={{ display: "none" }}>menu icon</span>
-          </a>
+          </button>
         </div>
       </section>
       <img
@@ -193,18 +188,7 @@ const FeedPost = ({ post }) => {
         &nbsp;
         <span style={{ margin: "0" }}>{post.text}</span>
       </section>
-      <Comments id={post.id} />
-      <div
-        style={{
-          color: "#8e8e8e",
-          fontSize: "10px",
-          padding: "0 16px",
-          margin: "6px 0",
-        }}
-      >
-        {postedTime}
-      </div>
-      <NewComment id={post.id} />
+      <Comments id={post.id} commentsData={post.commentsData} />
     </article>
   );
 };

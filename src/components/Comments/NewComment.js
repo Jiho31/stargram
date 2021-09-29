@@ -22,7 +22,7 @@ const NewComment = (props) => {
     // 1. 댓글 입력값 확인
     if (isValid) {
       // 2. 댓글 등록
-      console.log(commentInput);
+      props.addComment({ username: "jiho", content: commentInput });
 
       // 3. 댓글 입력 칸 비우기
       setCommentInput("");
@@ -42,12 +42,6 @@ const NewComment = (props) => {
       <form
         key={props.id}
         id={"comment-form" + props.id}
-        style={{
-          width: "100%",
-          height: "18px",
-          display: "inherit",
-          alignItems: "center",
-        }}
         onSubmit={formSubmissionHandler}
       >
         <textarea
