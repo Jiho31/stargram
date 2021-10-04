@@ -12,31 +12,6 @@ const MyInfo = [
 
 const postDummy = [
   {
-    id: 1,
-    author: "skawngur",
-    profileImage: "../images/profile_skawngur.jpg",
-    images: ["../images/post1"],
-    text: "어쩌고 저쩌고 랄랄라",
-    likes: 123234229,
-    postedAt: "2020-12-07 15:00:00",
-    commentsData: [
-      { id: 1, username: "fan1", content: "남주혁 존잘" },
-      { id: 2, username: "fan2", content: "사진 너무 예쁘다" },
-      { id: 3, username: "fan3", content: "워후~~~~" },
-      { id: 4, username: "fan4", content: "pretty boy <3<3" },
-    ],
-  },
-  {
-    id: 2,
-    author: "poloralphlauren",
-    profileImage: "../images/profile_poloralphlauren.jpg",
-    images: ["../images/post2jpg"],
-    text: "Timeless Style.",
-    likes: 5432,
-    postedAt: "2020-12-17 16:00:00",
-    commentsData: [{ id: 1, username: "dailylooks_", content: "구매 각🤑" }],
-  },
-  {
     id: 3,
     author: "poloralphlauren",
     profileImage: "../images/profile_poloralphlauren.jpg",
@@ -55,6 +30,31 @@ const postDummy = [
         content: "I love polo sweaterssssssss 💘💘",
       },
       { id: 2, username: "ootdfashion", content: "they look so cute!!" },
+    ],
+  },
+  {
+    id: 2,
+    author: "poloralphlauren",
+    profileImage: "../images/profile_poloralphlauren.jpg",
+    images: ["../images/post2.jpg"],
+    text: "Timeless Style.",
+    likes: 5432,
+    postedAt: "2020-12-17 16:00:00",
+    commentsData: [{ id: 1, username: "dailylooks_", content: "구매 각🤑" }],
+  },
+  {
+    id: 1,
+    author: "skawngur",
+    profileImage: "../images/profile_skawngur.jpg",
+    images: ["../images/post1"],
+    text: "어쩌고 저쩌고 랄랄라",
+    likes: 123234229,
+    postedAt: "2020-12-07 15:00:00",
+    commentsData: [
+      { id: 1, username: "fan1", content: "남주혁 존잘" },
+      { id: 2, username: "fan2", content: "사진 너무 예쁘다" },
+      { id: 3, username: "fan3", content: "워후~~~~" },
+      { id: 4, username: "fan4", content: "pretty boy <3<3" },
     ],
   },
   {

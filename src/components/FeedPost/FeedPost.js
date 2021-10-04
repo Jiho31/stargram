@@ -4,7 +4,7 @@ import NewComment from "../Comments/NewComment";
 
 const FeedPost = ({ post }) => {
   const userId = post.author;
-  const feedImagePath = post.images[0];
+  const [feedImagePath, setFeedImagePath] = useState(post.images[0]);
   const imageSize = { width: "614px", height: "auto" };
 
   const [likeCount, setLikeCount] = useState(post.likes); // 좋아요 갯수
@@ -72,16 +72,24 @@ const FeedPost = ({ post }) => {
           </button>
         </div>
       </section>
-      <img
-        className="content-image"
-        alt={post.id + "번째 피드"}
-        src={
-          post.id > 4
-            ? require("../../images/post1.jpg")
-            : require(`../../images/post${post.id}.jpg`)
-        }
-        style={{ width: imageSize.width, height: imageSize.height }}
-      />
+      <div style={{ position: "relative" }}>
+        <img
+          className="content-image"
+          alt={post.id + "번째 피드"}
+          src={
+            post.id > 4
+              ? require("../../images/post1.jpg")
+              : require(`../../images/post${post.id}.jpg`)
+          }
+          style={{ width: imageSize.width, height: imageSize.height }}
+        />
+        <div className="prevButton">
+          <button></button>
+        </div>
+        <div className="nextButton">
+          <button></button>
+        </div>
+      </div>
       <section className="content-buttons">
         <span
           className="like-icon"

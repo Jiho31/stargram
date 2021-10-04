@@ -142,6 +142,33 @@ input:focus {
 }
 .content-image {
 }
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  margin: 10px;
+  background: white;
+  border-radius: 100%;
+}
+.nextButton {
+  right: 0;
+}
+.prevButton > button {
+  background-image: url("../images/button-previous.png");
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 2px;
+}
+.nextButton > button {
+  background-image: url("../images/button-next.png");
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 2px;
+}
 .like-stat,
 .content-info,
 .more-comments-button,
