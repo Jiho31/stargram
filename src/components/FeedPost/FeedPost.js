@@ -75,7 +75,11 @@ const FeedPost = ({ post }) => {
       <img
         className="content-image"
         alt={post.id + "번째 피드"}
-        src={require("../../images/post" + post.id + ".jpg")}
+        src={
+          post.id > 4
+            ? require("../../images/post1.jpg")
+            : require(`../../images/post${post.id}.jpg`)
+        }
         style={{ width: imageSize.width, height: imageSize.height }}
       />
       <section className="content-buttons">

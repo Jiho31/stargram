@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import FeedPost from "../components/FeedPost/FeedPost";
 import "./FeedPage.css";
 
@@ -254,15 +254,50 @@ class FeedBody extends Component {
   }
 }
 
-class FeedPage extends Component {
-  render() {
-    return (
-      <>
-        <FeedNav />
-        <FeedBody />
-      </>
-    );
-  }
-}
+const FeedPage = () => {
+  const [postItems, setPostItems] = useState(postDummy);
+
+  // 무한 스크롤
+  useEffect(() => {
+    window.onscroll = () => {
+      if (
+        document.documentElement.scrollTop +
+          document.documentElement.offsetHeight ===
+        document.documentElement.scrollHeight
+      ) {
+        setPostItems([
+          ...postItems,
+          {
+            id: postItems.length + 1,
+            author: "skawngur",
+            profileImage: "../images/profile_skawngur.jpg",
+            images: ["../images/post1"],
+            text: "어쩌고 저쩌고 랄랄라",
+            likes: 0,
+            postedAt: "2020-12-07 15:00:00",
+            commentsData: [],
+          },
+        ]);
+      }
+    };
+  });
+
+  return (
+    <>
+      <FeedNav />
+      <div className="feed-body">
+        <main className="main-body">
+          <section className="story-box"></section>
+          <section className="feed-content">
+            {postItems.map((post) => (
+              <FeedPost key={post.id} post={post} />
+            ))}
+          </section>
+        </main>
+        {/* <SideBody /> */}
+      </div>
+    </>
+  );
+};
 
 export default FeedPage;

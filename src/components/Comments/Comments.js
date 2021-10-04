@@ -64,12 +64,12 @@ const Comments = ({ commentsData }) => {
   return (
     <>
       <section>
-        <button
+        {/* <button
           className="more-comments-button"
           id={"more-comments-button" + commentsData.id}
         >
           댓글 {numOfComments}개 모두 보기
-        </button>
+        </button> */}
         <ul className="comments-box">
           {commentsInfo.map((comment) => {
             return (
