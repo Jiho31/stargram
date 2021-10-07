@@ -149,6 +149,9 @@ input:focus {
   margin: 10px;
   background: white;
   border-radius: 100%;
+  opacity: 0.7;
+  width: 22px;
+  height: 22px;
 }
 .nextButton {
   right: 0;
@@ -159,7 +162,7 @@ input:focus {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  margin: 2px;
+  margin: 1.5px;
 }
 .nextButton > button {
   background-image: url("../images/button-next.png");
@@ -167,7 +170,7 @@ input:focus {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  margin: 2px;
+  margin: 1.5px;
 }
 .like-stat,
 .content-info,

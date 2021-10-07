@@ -1,11 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Comments from "../Comments/Comments";
-import NewComment from "../Comments/NewComment";
+
+const reverseString = (str) => {
+  // 문자열 str을 뒤집는 함수
+  return Array.from(str).reverse().join("");
+};
+
+const addCommas = (num) => {
+  // 앞에서부터 (3 x n)번째 문자 뒤에 콤마(,)를 붙여주는 함수
+  let n = "";
+  for (let i = 0; i < num.length; i++) {
+    if ((i + 1) % 3 === 0 && i + 1 !== num.length) n += num[i] + ",";
+    else n += num[i];
+  }
+
+  return reverseString(n);
+};
 
 const FeedPost = ({ post }) => {
   const userId = post.author;
-  const [feedImagePath, setFeedImagePath] = useState(post.images[0]);
+  const [currentImageIdx, setCurrentImageIdx] = useState(0);
   const imageSize = { width: "614px", height: "auto" };
+
+  const numOfImages = post.images.length;
+  // const postImgLink = post.images;
 
   const [likeCount, setLikeCount] = useState(post.likes); // 좋아요 갯수
   const [liked, setLiked] = useState(false); // 좋아요 버튼 눌린 상태 = true, 좋아요 안 된 상태 = false
@@ -25,28 +43,20 @@ const FeedPost = ({ post }) => {
     setLiked(false);
   };
 
-  const reverseString = (str) => {
-    // 문자열 str을 뒤집는 함수
-    return Array.from(str).reverse().join("");
-  };
-
-  const addCommas = (num) => {
-    // 앞에서부터 (3 x n)번째 문자 뒤에 콤마(,)를 붙여주는 함수
-    let n = "";
-    for (let i = 0; i < num.length; i++) {
-      if ((i + 1) % 3 === 0 && i + 1 !== num.length) n += num[i] + ",";
-      else n += num[i];
-    }
-
-    return reverseString(n);
-  };
-
   useEffect(() => {
     // console.log(addCommas(reverseString(likeCount+'')));
     document.getElementById(
       "like-stat" + post.id
     ).innerHTML = `좋아요 ${addCommas(reverseString(likeCount + ""))}개`;
   }, [likeCount]);
+
+  const showPreviousImageHandler = () => {
+    setCurrentImageIdx(currentImageIdx - 1);
+  };
+
+  const showNextImageHandler = () => {
+    setCurrentImageIdx(currentImageIdx + 1);
+  };
 
   return (
     <article className="contents">
@@ -79,16 +89,20 @@ const FeedPost = ({ post }) => {
           src={
             post.id > 4
               ? require("../../images/post1.jpg")
-              : require(`../../images/post${post.id}.jpg`)
+              : require("../../images/post" + post.images[currentImageIdx])
           }
           style={{ width: imageSize.width, height: imageSize.height }}
         />
-        <div className="prevButton">
-          <button></button>
-        </div>
-        <div className="nextButton">
-          <button></button>
-        </div>
+        {currentImageIdx !== 0 && (
+          <div className="prevButton">
+            <button onClick={showPreviousImageHandler}></button>
+          </div>
+        )}
+        {currentImageIdx < numOfImages - 1 && (
+          <div className="nextButton">
+            <button onClick={showNextImageHandler}></button>
+          </div>
+        )}
       </div>
       <section className="content-buttons">
         <span
