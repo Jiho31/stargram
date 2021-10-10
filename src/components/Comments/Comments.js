@@ -34,9 +34,9 @@ import "./Comments.css";
 //   },
 // ];
 
-const Comments = ({ commentsData }) => {
+const Comments = (props) => {
   // numOfComment 변수는 commentsInfo 객체 갯수로 값 초기화
-  const [commentsInfo, setCommentsInfo] = useState(commentsData);
+  const [commentsInfo, setCommentsInfo] = useState(props.commentsData);
   const numOfComments = commentsInfo.length; // 댓글의 갯수
 
   const postedTime = "1시간 전"; // 나중에 현재 시간 기준으로 db에 있는 포스트 등록 시간 뺀 결과로 초기화
@@ -94,7 +94,11 @@ const Comments = ({ commentsData }) => {
       >
         {postedTime}
       </div>
-      <NewComment id={commentsData.id} addComment={addCommentHandler} />
+      <NewComment
+        id={props.id}
+        addComment={addCommentHandler}
+        commentInputRef={props.commentInputRef}
+      />
     </>
   );
 };

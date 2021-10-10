@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Comments from "../Comments/Comments";
 
 const reverseString = (str) => {
@@ -24,6 +24,8 @@ const FeedPost = ({ post }) => {
 
   const numOfImages = post.images.length;
   // const postImgLink = post.images;
+
+  const commentInputRef = useRef();
 
   const [likeCount, setLikeCount] = useState(post.likes); // 좋아요 갯수
   const [liked, setLiked] = useState(false); // 좋아요 버튼 눌린 상태 = true, 좋아요 안 된 상태 = false
@@ -56,6 +58,10 @@ const FeedPost = ({ post }) => {
 
   const showNextImageHandler = () => {
     setCurrentImageIdx(currentImageIdx + 1);
+  };
+
+  const focusCommentInput = () => {
+    commentInputRef.current.focus();
   };
 
   return (
@@ -142,7 +148,7 @@ const FeedPost = ({ post }) => {
             />
           </svg>
         </span>
-        <span className="comment-icon">
+        <span className="comment-icon" onClick={focusCommentInput}>
           <svg
             viewBox="0 0 511.072 511.072"
             xmlns="http://www.w3.org/2000/svg"
@@ -155,50 +161,6 @@ const FeedPost = ({ post }) => {
                         0-200.15 73.973-220.557 147.285-19.284 69.28 9.143 134.743 76.043 175.115l7.475 4.511-.23 8.727c-.456 17.274-4.574 33.912-11.945 48.952 17.949-6.073 34.236-17.083 46.99-32.151l6.342-7.493 9.405 
                         2.813c26.393 7.894 57.104 12.241 86.477 12.241 154.372 0 224.682-93.473 224.682-180.322 0-46.776-19.524-90.384-54.976-122.79-40.713-37.216-99.397-56.888-169.706-56.888z"
             />
-          </svg>
-        </span>
-        <span className="send-message-icon">
-          <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            viewBox="0 0 512.001 512.001"
-            style={{ width: "24px", height: "24px" }}
-          >
-            <path
-              d="M507.608,4.395c-4.243-4.244-10.609-5.549-16.177-3.321L9.43,193.872c-5.515,2.206-9.208,7.458-9.42,13.395
-                            c-0.211,5.936,3.101,11.437,8.445,14.029l190.068,92.181l92.182,190.068c2.514,5.184,7.764,8.455,13.493,8.455
-                            c0.178,0,0.357-0.003,0.536-0.01c5.935-0.211,11.189-3.904,13.394-9.419l192.8-481.998
-                            C513.156,15.001,511.851,8.638,507.608,4.395z M52.094,209.118L434.72,56.069L206.691,284.096L52.094,209.118z M302.883,459.907
-                            l-74.979-154.599l228.03-228.027L302.883,459.907z"
-            />
-          </svg>
-        </span>
-        <span
-          className="bookmark-icon"
-          style={{ marginLeft: "auto", marginRight: "-10px" }}
-        >
-          <svg
-            id="empty-bookmark"
-            viewBox="-161 -27 859 859.3038"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="m514.824219 805.585938c-3.605469 0-7.140625-1.453126-9.726563-4.179688l-245.371094-258.277344-245.371093 258.277344c-3.792969 
-                        4-9.628907 5.273438-14.710938 3.226562-5.109375-2.03125-8.453125-6.972656-8.453125-12.46875v-765.3125c0-14.808593 12.046875-26.851562 
-                        26.855469-26.851562h483.351563c14.804687 0 26.855468 12.042969 26.855468 26.851562v765.308594c0 5.496094-3.34375 10.441406-8.441406 
-                        12.472656-1.617188.640626-3.308594.953126-4.988281.953126zm-255.097657-295.378907c3.671876 0 7.195313 1.507813 9.730469 4.179688l231.941407 
-                        244.144531v-731.679688h-483.351563v731.679688l231.941406-244.144531c2.535157-2.671875 6.058594-4.179688 9.738281-4.179688zm0 0"
-            />
-          </svg>
-          <svg
-            id="filled-bookmark"
-            viewBox="-110 -18 581 581.33331"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ display: "none" }}
-          >
-            <path d="m181.25 363.109375 172.75 181.890625v-545h-360v545l172.75-181.890625c1.886719-1.984375 4.511719-3.113281 7.25-3.113281s5.359375 1.128906 7.25 3.113281zm0 0" />
           </svg>
         </span>
       </section>
@@ -214,7 +176,11 @@ const FeedPost = ({ post }) => {
         &nbsp;
         <span style={{ margin: "0" }}>{post.text}</span>
       </section>
-      <Comments id={post.id} commentsData={post.commentsData} />
+      <Comments
+        id={post.id}
+        commentsData={post.commentsData}
+        commentInputRef={commentInputRef}
+      />
     </article>
   );
 };

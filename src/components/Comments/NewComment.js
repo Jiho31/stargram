@@ -50,6 +50,7 @@ const NewComment = (props) => {
           placeholder="댓글 달기..."
           value={commentInput}
           onChange={commentInputChangeHandler}
+          ref={props.commentInputRef}
         ></textarea>
         {isValid ? validButton : invalidButton}
       </form>
