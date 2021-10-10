@@ -256,11 +256,17 @@ const FeedPage = () => {
   // 무한 스크롤
   useEffect(() => {
     window.onscroll = () => {
-      if (
-        document.documentElement.scrollTop +
-          document.documentElement.offsetHeight ===
-        document.documentElement.scrollHeight
-      ) {
+      let scrollHeight = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight
+      );
+      let scrollTop = Math.max(
+        document.documentElement.scrollTop,
+        document.body.scrollTop
+      );
+      let clientHeight = document.documentElement.clientHeight;
+
+      if (scrollTop + clientHeight + 10 >= scrollHeight) {
         setPostItems([
           ...postItems,
           {
