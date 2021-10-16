@@ -53,3 +53,6 @@ button {
   padding: 0;
   cursor: pointer;
 }
+button.user-id {
+  padding: 0;
+}

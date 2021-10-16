@@ -2,14 +2,6 @@ import React, { Component, useState, useEffect } from "react";
 import FeedPost from "../components/FeedPost/FeedPost";
 import "./FeedPage.css";
 
-const MyInfo = [
-  {
-    id: "bokjiho",
-    password: 123456,
-    profileImage: "",
-  },
-];
-
 const postDummy = [
   {
     id: 1,

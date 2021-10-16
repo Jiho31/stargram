@@ -1,11 +1,37 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
+const userLoginInfo = {
+  id: "bokjiho",
+  password: "123456",
+};
+
 const LoginContainer = () => {
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+
+  const checkFormValidity = (id, pw) => {
+    return id === userLoginInfo.id && pw === userLoginInfo.password;
+  };
+
+  const usernameInputChangeHandler = (e) => {
+    setUsernameInput(e.target.value);
+  };
+
+  const passwordInputChangeHandler = (e) => {
+    setPasswordInput(e.target.value);
+  };
+
   const handleClick = (e) => {
     e.preventDefault();
-    document.querySelector("#login-button").click();
+    if (!checkFormValidity(usernameInput, passwordInput)) {
+      alert("Enter correct username and password.");
+      return;
+    } else {
+      localStorage.setItem("isLogin", "1");
+      document.location.href = "/";
+    }
   };
 
   return (
@@ -13,12 +39,20 @@ const LoginContainer = () => {
       <section className="login-body">
         <h1 className="stargram-logo">Stargram</h1>
         <form className="login-form">
-          <input placeholder="전화번호, 사용자 이름 또는 이메일" />
-          <input type="password" placeholder="비밀번호" />
-          <button onClick={handleClick}>
-            <Link id="login-button" to="/feed">
-              로그인
-            </Link>
+          <input
+            placeholder="사용자 이름"
+            maxLength="10"
+            onChange={usernameInputChangeHandler}
+            value={usernameInput}
+          />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            onChange={passwordInputChangeHandler}
+            value={passwordInput}
+          />
+          <button id="login-button" onClick={handleClick}>
+            로그인
           </button>
         </form>
         <div className="divider">
