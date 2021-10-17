@@ -27,6 +27,7 @@ const NewComment = (props) => {
       // 3. 댓글 입력 칸 비우기
       setCommentInput("");
       setIsValid(false);
+      document.querySelector(`#comment-input${props.id}`).blur();
     }
   };
 
