@@ -63,17 +63,19 @@ const postDummy = [
 class FeedNav extends Component {
   render() {
     return (
-      <nav className="nav-bar">
-        <section>
-          <span className="stargram-logo">Stargram</span>
-        </section>
-        <section>
-          <input className="search-input" placeholder="검색" />
-        </section>
-        <section>
-          <div className="nav-icons"></div>
-        </section>
-      </nav>
+      <div className="nav-bar-wrapper">
+        <nav className="nav-bar">
+          <section>
+            <span className="stargram-logo">Stargram</span>
+          </section>
+          <section>
+            <input className="search-input" placeholder="검색" />
+          </section>
+          <section>
+            <div className="nav-icons"></div>
+          </section>
+        </nav>
+      </div>
     );
   }
 }
