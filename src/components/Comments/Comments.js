@@ -51,7 +51,8 @@ const Comments = (props) => {
 
   const addCommentHandler = (content) => {
     setCommentsInfo((prevState) => {
-      return [...prevState, { ...content, id: prevState.length + 1 }];
+      const timeNow = Date.now();
+      return [...prevState, { ...content, id: content.username + timeNow }];
     });
   };
 
