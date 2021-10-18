@@ -48,7 +48,7 @@ button {
 .delete-comment-button {
   width: 9px;
   height: 9px;
-  background-image: url("../../images/delete-icon.png");
+  background-image: url("../../images/icons/delete-icon.png");
   background-size: cover;
   padding: 0;
   cursor: pointer;

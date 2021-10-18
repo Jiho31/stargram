@@ -3,6 +3,10 @@ import UserProfile from "./UserProfile";
 import "./NavigationBar.css";
 
 const NavigationBar = (props) => {
+  const onHomeButtonClickHandler = (e) => {
+    document.location.href = "#";
+  };
+
   return (
     <div className="nav-bar-wrapper">
       <nav className="nav-bar">
@@ -14,7 +18,7 @@ const NavigationBar = (props) => {
         </section>
         <section>
           <div className="nav-icons">
-            <span className="home-icon">
+            <button className="home-icon" onClick={onHomeButtonClickHandler}>
               <svg
                 version="1.0"
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +53,7 @@ m247 -286 c59 -28 2149 -2121 2171 -2172 21 -51 19 -94 -6 -144 -37 -77 -68
                   />
                 </g>
               </svg>
-            </span>
+            </button>
             <UserProfile
               className="myprofile-icon"
               userId="default"
