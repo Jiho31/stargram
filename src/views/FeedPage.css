@@ -91,17 +91,17 @@ input:focus {
 .menu-icon {
   width: 24px;
   height: 24px;
-  padding: 4px;
+  padding: 2px;
   box-sizing: border-box;
   cursor: pointer;
 }
 .menu-icon > span:first-child {
   display: block;
-  background-image: url("../images/menu-icon.JPG");
-  background-size: 16px;
+  background-image: url("../images/icons/option-icon.png");
+  background-size: 18px;
   background-repeat: no-repeat;
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
 }
 .content-image {
 }
@@ -120,7 +120,7 @@ input:focus {
   right: 0;
 }
 .prevButton > button {
-  background-image: url("../images/button-previous.png");
+  background-image: url("../images/icons/button-previous.png");
   background-size: contain;
   width: 20px;
   height: 20px;
@@ -128,7 +128,7 @@ input:focus {
   margin: 1.5px;
 }
 .nextButton > button {
-  background-image: url("../images/button-next.png");
+  background-image: url("../images/icons/button-next.png");
   background-size: contain;
   width: 20px;
   height: 20px;

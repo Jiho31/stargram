@@ -1,65 +1,8 @@
 import React, { Component, useState, useEffect } from "react";
-import FeedPost from "../components/FeedPost/FeedPost";
-import NavigationBar from "../components/FeedPost/NavigationBar";
+import FeedPost from "../components/FeedPage/FeedPost";
+import NavigationBar from "../components/FeedPage/NavigationBar";
 import "./FeedPage.css";
-
-const postDummy = [
-  {
-    id: 1,
-    author: "poloralphlauren",
-    profileImage: "../../images/profile_poloralphlauren.jpg",
-    images: ["3.jpg", "3 (2).jpg", "3 (3).jpg"],
-    text: "Holiday essentials for your loved ones.",
-    likes: 20001,
-    postedAt: "2020-12-17 20:30:00",
-    commentsData: [
-      {
-        id: 1,
-        username: "dailylooks_",
-        content: "I love polo sweaterssssssss 💘💘",
-      },
-      { id: 2, username: "ootdfashion", content: "they look so cute!!" },
-    ],
-  },
-  {
-    id: 2,
-    author: "poloralphlauren",
-    profileImage: "../../images/profile_poloralphlauren.jpg",
-    images: ["2.jpg"],
-    text: "Timeless Style.",
-    likes: 5432,
-    postedAt: "2020-12-17 16:00:00",
-    commentsData: [{ id: 1, username: "dailylooks_", content: "구매 각🤑" }],
-  },
-  {
-    id: 3,
-    author: "skawngur",
-    profileImage: "../../images/profile_skawngur.jpg",
-    images: ["1.jpg"],
-    text: "어쩌고 저쩌고 랄랄라",
-    likes: 123234229,
-    postedAt: "2020-12-07 15:00:00",
-    commentsData: [
-      { id: 1, username: "fan1", content: "남주혁 존잘" },
-      { id: 2, username: "fan2", content: "사진 너무 예쁘다" },
-      { id: 3, username: "fan3", content: "워후~~~~" },
-      { id: 4, username: "fan4", content: "pretty boy <3<3" },
-    ],
-  },
-  {
-    id: 4,
-    author: "drmartenskr",
-    profileImage: "../../images/profile_drmartenskr.jpg",
-    images: ["4.jpg"],
-    text: "💗💗💗",
-    likes: 304,
-    postedAt: "2020-12-17 22:50:00",
-    commentsData: [
-      { id: 1, username: "dailylooks_", content: "so pretty" },
-      { id: 2, username: "todaystyless", content: "dm plz" },
-    ],
-  },
-];
+import feedPostData from "../feed-post-data";
 
 class StoryContent extends Component {
   // const profileImagePath = this.props.uimagepath;
@@ -85,13 +28,13 @@ class MyProfile extends Component {
         <span style={{ width: "56px", height: "56px" }}>
           <a className="profile-img">
             <img
-              alt="profile image"
+              alt="my profile image"
               src={require("../images/profile_default.jpg")}
             />
           </a>
         </span>
         <span className="my-userid" style={{ width: "187px" }}>
-          <div style={{ fontWeight: 600, cursor: "pointer" }}>zl.ll07</div>
+          <div style={{ fontWeight: 600, cursor: "pointer" }}>bokjiho</div>
           <div style={{ color: "#8e8e8e" }}>소개입니다</div>
         </span>
         <span>
@@ -196,37 +139,8 @@ class Recommendations extends Component {
   }
 }
 
-class SideBody extends Component {
-  render() {
-    return (
-      <aside className="side-body">
-        <MyProfile />
-        <Recommendations />
-      </aside>
-    );
-  }
-}
-
-class FeedBody extends Component {
-  render() {
-    return (
-      <div className="feed-body">
-        <main className="main-body">
-          <section className="story-box"></section>
-          <section className="feed-content">
-            {postDummy.map((post) => (
-              <FeedPost key={post.id} post={post} />
-            ))}
-          </section>
-        </main>
-        {/* <SideBody /> */}
-      </div>
-    );
-  }
-}
-
 const FeedPage = () => {
-  const [postItems, setPostItems] = useState(postDummy);
+  const [postItems, setPostItems] = useState(feedPostData);
 
   // 무한 스크롤
   useEffect(() => {
@@ -271,7 +185,10 @@ const FeedPage = () => {
             ))}
           </section>
         </main>
-        {/* <SideBody /> */}
+        <aside className="side-body">
+          <MyProfile />
+          <Recommendations />
+        </aside>
       </div>
     </>
   );
