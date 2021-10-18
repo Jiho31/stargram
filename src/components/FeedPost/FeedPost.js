@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Comments from "../Comments/Comments";
+import UserProfile from "./UserProfile";
 
 const reverseString = (str) => {
   // 문자열 str을 뒤집는 함수
@@ -68,14 +69,7 @@ const FeedPost = ({ post }) => {
     <article className="contents">
       <section className="content-header">
         <div style={{ display: "flex" }}>
-          <span style={{ width: "32px", height: "32px" }}>
-            <a className="profile-img" href="#">
-              <img
-                src={require("../../images/profile_" + userId + ".jpg")}
-                alt={userId + "님의 프로필 사진"}
-              />
-            </a>
-          </span>
+          <UserProfile userId={userId} size="32" />
 
           <span style={{ width: "90%" }}>
             <a href="#" className="user-id" style={{ marginLeft: "16px" }}>
