@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import FeedPost from "../components/FeedPost/FeedPost";
+import NavigationBar from "../components/FeedPost/NavigationBar";
 import "./FeedPage.css";
 
 const postDummy = [
@@ -59,26 +60,6 @@ const postDummy = [
     ],
   },
 ];
-
-class FeedNav extends Component {
-  render() {
-    return (
-      <div className="nav-bar-wrapper">
-        <nav className="nav-bar">
-          <section>
-            <span className="stargram-logo">Stargram</span>
-          </section>
-          <section>
-            <input className="search-input" placeholder="검색" />
-          </section>
-          <section>
-            <div className="nav-icons"></div>
-          </section>
-        </nav>
-      </div>
-    );
-  }
-}
 
 class StoryContent extends Component {
   // const profileImagePath = this.props.uimagepath;
@@ -280,7 +261,7 @@ const FeedPage = () => {
 
   return (
     <>
-      <FeedNav />
+      <NavigationBar />
       <div className="feed-body">
         <main className="main-body">
           <section className="story-box"></section>
