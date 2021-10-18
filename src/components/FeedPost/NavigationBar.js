@@ -1,4 +1,5 @@
 import React from "react";
+import UserProfile from "./UserProfile";
 import "./NavigationBar.css";
 
 const NavigationBar = (props) => {
@@ -13,21 +14,22 @@ const NavigationBar = (props) => {
         </section>
         <section>
           <div className="nav-icons">
-            <svg
-              version="1.0"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24px"
-              height="24px"
-              viewBox="0 0 512.000000 512.000000"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <g
-                transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                fill="#000000"
-                stroke="none"
+            <span className="home-icon">
+              <svg
+                version="1.0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 512.000000 512.000000"
+                preserveAspectRatio="xMidYMid meet"
               >
-                <path
-                  d="M2397 5096 c-32 -13 -75 -36 -95 -50 -21 -14 -526 -515 -1124 -1113
+                <g
+                  transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                  fill="#000000"
+                  stroke="none"
+                >
+                  <path
+                    d="M2397 5096 c-32 -13 -75 -36 -95 -50 -21 -14 -526 -515 -1124 -1113
 -876 -878 -1091 -1098 -1112 -1140 -96 -194 -64 -406 83 -554 92 -91 209 -139
 343 -139 l68 0 0 -800 c0 -541 4 -816 11 -852 38 -182 185 -347 367 -410 66
 -23 71 -23 554 -23 476 0 487 0 514 21 15 11 37 33 48 48 21 27 21 40 26 695
@@ -44,9 +46,15 @@ m247 -286 c59 -28 2149 -2121 2171 -2172 21 -51 19 -94 -6 -144 -37 -77 -68
 -354 0 c-382 0 -403 2 -473 56 -18 13 -45 46 -60 72 l-28 47 -5 907 c-5 896
 -5 907 -26 934 -48 65 -61 69 -242 74 -193 6 -224 17 -261 94 -25 50 -27 93
 -6 144 21 50 2112 2143 2170 2172 51 25 98 25 149 0z"
-                />
-              </g>
-            </svg>
+                  />
+                </g>
+              </svg>
+            </span>
+            <UserProfile
+              className="myprofile-icon"
+              userId="default"
+              size="24"
+            />
           </div>
         </section>
       </nav>

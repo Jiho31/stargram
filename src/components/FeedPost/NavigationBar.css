@@ -40,5 +40,17 @@
   /* background: url("../../images/nav-icons.JPG");
   background-size: 210px 27px; */
   width: auto;
-  height: 27px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+.home-icon {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+}
+.myprofile-icon {
+  cursor: pointer;
+  margin: 0 10px;
 }
