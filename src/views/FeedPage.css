@@ -110,7 +110,7 @@ input:focus {
   position: absolute;
   top: 50%;
   margin: 10px;
-  background: white;
+  /* background: white; */
   border-radius: 100%;
   opacity: 0.7;
   width: 22px;
@@ -119,21 +119,14 @@ input:focus {
 .nextButton {
   right: 0;
 }
-.prevButton > button {
-  background-image: url("../images/icons/button-previous.png");
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin: 1.5px;
-}
+.prevButton > button,
 .nextButton > button {
-  background-image: url("../images/icons/button-next.png");
-  background-size: contain;
+  /* background-image: url("../images/icons/button-previous.png");
+  background-size: contain; */
   width: 20px;
   height: 20px;
   cursor: pointer;
-  margin: 1.5px;
+  padding: 0;
 }
 .like-stat,
 .content-info,
