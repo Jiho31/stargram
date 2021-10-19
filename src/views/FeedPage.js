@@ -140,7 +140,8 @@ class Recommendations extends Component {
 }
 
 const FeedPage = () => {
-  const [postItems, setPostItems] = useState(feedPostData);
+  const [postItems, setPostItems] = useState(feedPostData.slice(0, 5));
+  const [loadedPostLength, setLoadedPostLength] = useState(5);
 
   // 무한 스크롤
   useEffect(() => {
@@ -155,20 +156,15 @@ const FeedPage = () => {
       );
       let clientHeight = document.documentElement.clientHeight;
 
-      if (scrollTop + clientHeight + 10 >= scrollHeight) {
+      if (
+        scrollTop + clientHeight + 10 >= scrollHeight &&
+        loadedPostLength < 16
+      ) {
         setPostItems([
           ...postItems,
-          {
-            id: postItems.length + 1,
-            author: "skawngur",
-            profileImage: "../images/profile_skawngur.jpg",
-            images: ["1.jpg"],
-            text: "어쩌고 저쩌고 랄랄라",
-            likes: 0,
-            postedAt: "2020-12-07 15:00:00",
-            commentsData: [],
-          },
+          ...feedPostData.slice(loadedPostLength, loadedPostLength + 2),
         ]);
+        setLoadedPostLength((prev) => prev + 2);
       }
     };
   });

@@ -86,11 +86,7 @@ const FeedPost = ({ post }) => {
         <img
           className="content-image"
           alt={post.id + "번째 피드"}
-          src={
-            post.id > 15
-              ? require("../../images/post1.jpg")
-              : require("../../images/post" + post.images[currentImageIdx])
-          }
+          src={require("../../images/post" + post.images[currentImageIdx])}
           style={{ width: imageSize.width, height: imageSize.height }}
         />
         {currentImageIdx !== 0 && (
