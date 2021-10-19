@@ -87,7 +87,7 @@ const FeedPost = ({ post }) => {
           className="content-image"
           alt={post.id + "번째 피드"}
           src={
-            post.id > 4
+            post.id > 15
               ? require("../../images/post1.jpg")
               : require("../../images/post" + post.images[currentImageIdx])
           }
