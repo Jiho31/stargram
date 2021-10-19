@@ -1,6 +1,7 @@
 import React from "react";
 import UserProfile from "./UserProfile";
 import "./NavigationBar.css";
+import SearchBarContainer from "./SearchBarContainer";
 
 const NavigationBar = (props) => {
   const onHomeButtonClickHandler = (e) => {
@@ -13,8 +14,9 @@ const NavigationBar = (props) => {
         <section>
           <span className="stargram-logo">Stargram</span>
         </section>
-        <section>
+        <section className="search-section">
           <input className="search-input" placeholder="검색" />
+          <SearchBarContainer />
         </section>
         <section>
           <div className="nav-icons">
