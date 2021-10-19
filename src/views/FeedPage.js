@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import FeedPost from "../components/FeedPage/FeedPost";
 import NavigationBar from "../components/FeedPage/NavigationBar";
+import UserProfile from "../components/FeedPage/UserProfile";
 import "./FeedPage.css";
 import feedPostData from "../feed-post-data";
 
@@ -25,17 +26,10 @@ class MyProfile extends Component {
   render() {
     return (
       <section className="my-profile">
-        <span style={{ width: "56px", height: "56px" }}>
-          <a className="profile-img">
-            <img
-              alt="my profile image"
-              src={require("../images/profile_default.jpg")}
-            />
-          </a>
-        </span>
-        <span className="my-userid" style={{ width: "187px" }}>
+        <UserProfile userId="bokjiho" size="56" />
+        <span className="my-userid">
           <div style={{ fontWeight: 600, cursor: "pointer" }}>bokjiho</div>
-          <div style={{ color: "#8e8e8e" }}>소개입니다</div>
+          <div style={{ color: "#8e8e8e" }}>복지호</div>
         </span>
         <span>
           <button
@@ -54,7 +48,7 @@ class MyProfile extends Component {
   }
 }
 
-class UserProfile extends Component {
+class User extends Component {
   render() {
     return (
       <>
@@ -66,14 +60,7 @@ class UserProfile extends Component {
             padding: "8px 0",
           }}
         >
-          <span style={{ width: "32px", height: "32px" }}>
-            <a className="profile-img">
-              <img
-                alt={this.props.userId + "님의 프로필 사진"}
-                src={require("../images/profile_default.jpg")}
-              />
-            </a>
-          </span>
+          <UserProfile userId="default" size="32" />
           <span className="my-userid" style={{ width: "201px" }}>
             <div style={{ fontWeight: 600, cursor: "pointer" }}>
               {this.props.userid}
@@ -104,7 +91,7 @@ class Recommendations extends Component {
     const RecommendedUser = [];
 
     for (const [index, value] of Users.entries()) {
-      RecommendedUser.push(<UserProfile key={index} userid={value} />);
+      RecommendedUser.push(<User key={index} userid={value} />);
     }
 
     return (

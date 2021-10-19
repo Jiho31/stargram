@@ -215,6 +215,7 @@ input:focus {
   left: 0;
 }
 .my-userid {
+  width: 187px;
   font-size: 14px;
   margin-left: 12px;
 }
