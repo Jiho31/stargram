@@ -8,7 +8,11 @@ const UserProfile = (props) => {
     >
       <div className="profile-img">
         <img
-          src={require("../../images/profile_" + props.userId + ".jpg")}
+          src={
+            props.id && props.id > 4
+              ? require("../../images/profile_default.jpg")
+              : require("../../images/profile_" + props.userId + ".jpg")
+          }
           alt={props.userId + "님의 프로필 사진"}
         />
       </div>
