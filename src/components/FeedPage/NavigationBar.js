@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserProfile from "./UserProfile";
 import "./NavigationBar.css";
 import SearchBarContainer from "./SearchBarContainer";
 
+// Move to top of page on click (home icon)
+const onHomeButtonClickHandler = (e) => {
+  document.location.href = "#";
+};
+
 const NavigationBar = (props) => {
-  const onHomeButtonClickHandler = (e) => {
-    document.location.href = "#";
+  const [searchInput, setSearchInput] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+
+  // Display or hide search result on input focus/blur
+  useEffect(() => {
+    const searchBar = document.querySelector(".search-input");
+
+    searchBar.addEventListener("focus", () => {
+      setIsFocused(true);
+    });
+    searchBar.addEventListener("blur", () => {
+      setIsFocused(false);
+    });
+  });
+
+  //
+
+  const searchInputChangeHandler = (e) => {
+    setSearchInput(e.target.value);
   };
 
   return (
@@ -15,8 +37,13 @@ const NavigationBar = (props) => {
           <span className="stargram-logo">Stargram</span>
         </section>
         <section className="search-section">
-          <input className="search-input" placeholder="검색" />
-          <SearchBarContainer />
+          <input
+            className="search-input"
+            placeholder="검색"
+            value={searchInput}
+            onChange={searchInputChangeHandler}
+          />
+          {isFocused && <SearchBarContainer />}
         </section>
         <section>
           <div className="nav-icons">
