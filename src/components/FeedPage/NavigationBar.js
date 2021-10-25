@@ -24,8 +24,6 @@ const NavigationBar = (props) => {
     });
   });
 
-  //
-
   const searchInputChangeHandler = (e) => {
     setSearchInput(e.target.value);
   };
@@ -43,7 +41,7 @@ const NavigationBar = (props) => {
             value={searchInput}
             onChange={searchInputChangeHandler}
           />
-          {isFocused && <SearchBarContainer />}
+          {isFocused && <SearchBarContainer searchInput={searchInput} />}
         </section>
         <section>
           <div className="nav-icons">

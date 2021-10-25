@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserProfile from "./UserProfile";
 
 const usernameList = [
@@ -80,11 +80,23 @@ const usernameList = [
 ];
 
 const SearchBarContainer = (props) => {
+  const [searchResult, setSearchResult] = useState(usernameList);
+
+  // 아이디 검색 일치하는 문자열 확인 함수
+  const findMatch = (wordToMatch) => {
+    const regex = new RegExp(wordToMatch, "gi");
+    return usernameList.filter((ul) => ul.username.match(regex));
+  };
+  useEffect(() => {
+    const newMatch = findMatch(props.searchInput);
+    setSearchResult(newMatch);
+  }, [props.searchInput]);
+
   return (
     <div className="search-container">
       <ul className="search-list">
         <h4>최근 검색 항목</h4>
-        {usernameList.map((user) => {
+        {searchResult.map((user) => {
           return (
             <li key={user.id}>
               <UserProfile
