@@ -5,22 +5,22 @@ import UserProfile from "../components/FeedPage/UserProfile";
 import "./FeedPage.css";
 import feedPostData from "../feed-post-data";
 
-class StoryContent extends Component {
+const StoryContent = (props) => {
   // const profileImagePath = this.props.uimagepath;
-
-  render() {
-    return (
-      <span style={{ width: "80px" }}>
-        <div style={{ width: "56px", height: "56px" }}>
-          <a className="profile-img">
-            <img src={this.props.profileImagePath} alt="" />
-          </a>
-        </div>
-        <div className="story-user-id">{this.props.uid}</div>
-      </span>
-    );
-  }
-}
+  return (
+    <span style={{ width: "80px" }}>
+      <div style={{ width: "56px", height: "56px" }}>
+        <a className="profile-img">
+          <img
+            src={require(props.profileImagePath)}
+            alt={`${props.uid}의 프로필 사진`}
+          />
+        </a>
+      </div>
+      <div className="story-user-id">{props.uid}</div>
+    </span>
+  );
+};
 
 class MyProfile extends Component {
   render() {
@@ -161,7 +161,12 @@ const FeedPage = () => {
       <NavigationBar />
       <div className="feed-body">
         <main className="main-body">
-          <section className="story-box"></section>
+          {/* <section className="story-box">
+            <span style={{ width: "80px" }}>
+              <UserProfile userId="bokjiho" size="56" />
+              <div className="story-user-id">bokjiho</div>
+            </span>
+          </section> */}
           <section className="feed-content">
             {postItems.map((post) => (
               <FeedPost key={post.id} post={post} />
