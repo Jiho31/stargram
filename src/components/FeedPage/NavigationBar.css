@@ -43,17 +43,23 @@
   height: auto;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  list-style: none;
+}
+.nav-icons > div {
+  margin: 0 10px;
+  height: fit-content;
 }
 .home-icon {
   cursor: pointer;
   width: 24px;
   height: 24px;
-  margin: 0 10px;
+  /* margin: 0 10px; */
   padding: 0;
 }
 .myprofile-icon {
   cursor: pointer;
-  margin: 0 10px;
+  /* margin: 0 10px; */
 }
 
 /* Search Bar */
@@ -71,7 +77,8 @@
   display: flex;
   justify-content: center;
 }
-.search-container::before {
+.search-container::before,
+.user-menu-container::before {
   content: "";
   height: 14px;
   width: 14px;
@@ -88,7 +95,8 @@
   align-self: flex-start;
   margin-top: 10px;
 }
-.search-list {
+.search-list,
+.user-menu-list {
   list-style: none;
   width: 100%;
   margin: 0;
@@ -114,4 +122,40 @@
 }
 .searched-profile {
   display: block;
+}
+
+/* User Menu */
+.user-menu-container {
+  width: 230px;
+  /* height: 194px; */
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+.user-menu-container::before {
+  top: -6px;
+  left: 7px;
+}
+.menu-item {
+  display: flex;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.menu-item:hover {
+  background: #fafafa;
+}
+.menu-item > svg {
+  margin-right: 10px;
+}
+.menu-item > div {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
 }

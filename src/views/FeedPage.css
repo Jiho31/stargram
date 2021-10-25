@@ -191,8 +191,8 @@ input:focus {
   margin-bottom: 10px;
 }
 .profile-img {
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
   border-radius: 50%;
   overflow: hidden;
   box-sizing: border-box;
