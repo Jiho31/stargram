@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f71e0bbbeafbb21b0a0b572f88d738b3",
+    "revision": "1ca2ed328ca238471003d6c995814c70",
     "url": "/stargram/index.html"
   },
   {
-    "revision": "3e0abb8fdf11333b92a6",
+    "revision": "3c9738b26a97d52ed4be",
     "url": "/stargram/static/css/main.700a2ec6.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/stargram/static/js/2.8fa3a647.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3e0abb8fdf11333b92a6",
-    "url": "/stargram/static/js/main.f1299974.chunk.js"
+    "revision": "3c9738b26a97d52ed4be",
+    "url": "/stargram/static/js/main.7c0e1f44.chunk.js"
   },
   {
     "revision": "0abbf2e1bf928bf49146",

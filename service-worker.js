@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/stargram/precache-manifest.078318b176b50715f5f5845253a0257d.js"
+  "/stargram/precache-manifest.61ee71e46e9cad3b9a367001c67a0f53.js"
 );
 
 self.addEventListener('message', (event) => {
