@@ -15,7 +15,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <Route path="/" exact>
+        <Route path="/stargram" exact>
           {!isLogin && <LandingPage />}
           {isLogin && <FeedPage />}
         </Route>
