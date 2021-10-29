@@ -159,3 +159,6 @@
   line-height: 18px;
   font-weight: 400;
 }
+.hidden {
+  display: none !important;
+}

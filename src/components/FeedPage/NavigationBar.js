@@ -11,6 +11,7 @@ const onHomeButtonClickHandler = (e) => {
 const NavigationBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+  const [displayUserMenu, setDisplayUserMenu] = useState(false);
 
   // Display or hide search result on input focus/blur
   useEffect(() => {
@@ -27,6 +28,34 @@ const NavigationBar = () => {
   const searchInputChangeHandler = (e) => {
     setSearchInput(e.target.value);
   };
+
+  // Display and hide user menu when clicked outside of menu container
+  useEffect(() => {
+    document.body.addEventListener("click", () => {
+      setDisplayUserMenu(false);
+    });
+
+    document
+      .querySelector(".user-menu-container")
+      .addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+
+    document.querySelector(".logout-button").addEventListener("click", (e) => {
+      localStorage.removeItem("isLogin");
+      window.location.reload();
+    });
+  });
+
+  const userIconClickHandler = () => {
+    setDisplayUserMenu((prev) => !prev);
+  };
+
+  // const logoutHandler = () => {
+  //   console.log("clicked");
+  //   localStorage.removeItem("isLogin");
+  //   window.location.reload();
+  // };
 
   return (
     <div className="nav-bar-wrapper">
@@ -82,19 +111,24 @@ m247 -286 c59 -28 2149 -2121 2171 -2172 21 -51 19 -94 -6 -144 -37 -77 -68
               </svg>
             </button>
           </div>
-          <div>
+          <div onClick={userIconClickHandler}>
             <UserProfile
               className="myprofile-icon"
               userId="bokjiho"
               size="24"
             />
 
-            <section className="user-menu-container">
+            <section
+              className={
+                displayUserMenu
+                  ? "user-menu-container"
+                  : "hidden user-menu-container"
+              }
+            >
               <ul className="user-menu-list">
                 <li className="menu-item">
                   <svg
                     aria-label="프로필"
-                    class="_8-yf5 "
                     color="#262626"
                     fill="#262626"
                     height="16"
@@ -109,7 +143,6 @@ m247 -286 c59 -28 2149 -2121 2171 -2172 21 -51 19 -94 -6 -144 -37 -77 -68
                 <li className="menu-item">
                   <svg
                     aria-label="설정"
-                    class="_8-yf5 "
                     color="#262626"
                     fill="#262626"
                     height="16"
@@ -121,7 +154,7 @@ m247 -286 c59 -28 2149 -2121 2171 -2172 21 -51 19 -94 -6 -144 -37 -77 -68
                   </svg>
                   <div>설정</div>
                 </li>
-                <li className="menu-item">
+                <li className="menu-item logout-button">
                   <div>로그아웃</div>
                 </li>
               </ul>
