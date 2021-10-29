@@ -1,5 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { Component, useState } from "react";
 import "./LandingPage.css";
 
 const userLoginInfo = {
