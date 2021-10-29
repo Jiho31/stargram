@@ -30,7 +30,7 @@ const LoginContainer = () => {
       return;
     } else {
       localStorage.setItem("isLogin", "1");
-      document.location.href = "/";
+      document.location.href = "/stargram";
     }
   };
 
