@@ -20,3 +20,6 @@
 6. 네비게이션 바의 홈 버튼 클릭시 홈페이지 최상단으로 스크롤 이동 
 7. 검색창에서 아이디 검색
 8. 네비게이션 바의 사용자 프로필 아이콘 클릭 후 생기는 메뉴 컨테이너에서 로그아웃
+
+### 프로젝트 구상 과정 및 Task List
+[Notion](https://shadow-resolution-e09.notion.site/bb04c3ecf7b344b098cbdca27e201884)
